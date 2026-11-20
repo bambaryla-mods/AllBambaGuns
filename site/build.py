@@ -28,9 +28,9 @@ ROOT = SITE.parent
 BUILD_MARKER = ".abg-site-build"  # a rebuild only ever deletes a folder it made itself
 
 WORKSHOP = "https://steamcommunity.com/sharedfiles/filedetails/?id=" + (ROOT / "About/PublishedFileId.txt").read_text().strip()
-GITHUB = "https://github.com/databobek/AllBambaGuns"
-BOR_SITE = "https://databobek.github.io/RimworldBeyondOurReach/"
-SITE_URL = "https://databobek.github.io/AllBambaGuns/"
+GITHUB = "https://github.com/bambaryla-mods/AllBambaGuns"
+BOR_SITE = "https://bambaryla-mods.github.io/RimworldBeyondOurReach/"
+SITE_URL = "https://bambaryla-mods.github.io/AllBambaGuns/"
 
 # Which folders each mode loads, from LoadFolders.xml (MuzzleFlash only adds visuals).
 MODES = {"vanilla": ["", "Launchers"], "ce": ["", "CE"]}

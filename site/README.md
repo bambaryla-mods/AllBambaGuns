@@ -1,6 +1,6 @@
 # Player site
 
-The page at https://databobek.github.io/AllBambaGuns/ shows players what the mod adds. It isn't part of the mod: `_PublisherPlus.xml` keeps this folder out of the Workshop upload.
+The page at https://bambaryla-mods.github.io/AllBambaGuns/ shows players what the mod adds. It isn't part of the mod: `_PublisherPlus.xml` keeps this folder out of the Workshop upload.
 
 ## How it works
 
