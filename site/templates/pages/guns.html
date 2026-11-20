@@ -1,0 +1,26 @@
+{% import "macros.html" as m %}
+<p>Every line has the same seven roles, so moving up a tier means swapping each gun for its better twin, not relearning the roster. Use the switch at the top of the page to see the stats with or without Combat Extended. Hover over a gun's name for its in-game description. Under each name: the research it needs and the crafting skill to make it.</p>
+
+<h2 id="roles">Seven guns per line</h2>
+<ul class="roles">
+  <li><b>Pistol</b>: a light sidearm.</li>
+  <li><b>Bullpup</b>: a compact assault rifle that fires fast bursts. Not in vanilla.</li>
+  <li><b>Battle rifle</b>: the standard rifle.</li>
+  <li><b>DMR</b>: a designated marksman rifle. Lighter and quicker to aim than a sniper rifle, for a little less damage and range. Not in vanilla.</li>
+  <li><b>Shotgun</b>: short range, heavy hits.</li>
+  <li><b>LMG</b>: long bursts for suppression.</li>
+  <li><b>Sniper rifle</b>: the longest reach in the line.</li>
+</ul>
+<p>A line's first research unlocks its pistol and battle rifle. The bullpup and DMR need its <i>specialized</i> research, and the shotgun, LMG and sniper rifle its <i>heavy</i> research. The <a href="research.html">Research</a> page lists every project.</p>
+
+{{ m.family(fam["IndustrialCharged"], "proto-charge", '<span class="vanilla-only">Proto-charge</span><span class="ce-only">Charge</span>'|safe, "industrial", '<p class="vanilla-only">Industrial-era charge guns built around a crude, reverse-engineered pulse-charging barrel. Steel, a little plasteel and industrial components: a way into charge weaponry long before you can make a charge rifle.</p><p class="ce-only">Under Combat Extended there are no Industrial charge prototypes. The same seven guns become the plain <b>charge</b> line at Spacer, filling out vanilla\'s charge rifle and charge lance. They need charged shot and fire CE\'s own charged calibers.</p>'|safe) }}
+
+{{ m.family(fam["SpacerBallistic"], "advanced-ballistic", "Advanced ballistic", "spacer", '<p>Conventional guns improved with precise machining and better materials: what comes after the assault rifle when you keep using bullets. Designs inspired by Mass Effect.</p><p class="ce-only">Under CE they fire caseless rounds.</p>'|safe) }}
+
+{{ m.family(fam["UltraCharged"], "advanced-charge", "Advanced charge", "ultra", '<p>The refined step after vanilla\'s charge weapons, built on advanced fabrication. Designs inspired by Xenonauts\' laser weapons.</p>'|safe) }}
+
+{{ m.family(fam["UltraBallistic"], "glitterworld-ballistic", "Glitterworld ballistic", "ultra", '<p>The peak of conventional firearms. Designs inspired by Mass Effect.</p><p class="ce-only">Under CE they fire hypersonic rounds and are rare: exotic and combat orbital traders sell them, and with Royalty so do Empire traders, and the Empire\'s Stellic guards carry them. Only with Beyond Our Reach can you craft them, as a costly plasteel line alongside Solar. Without it the research is removed.</p>'|safe) }}
+
+{{ m.family(fam["SolarCharged"], "solar-charge", "Solar charge", "solar", '<p>Charge weapons of Beyond Our Reach\'s Solar tier, researched in its tree after solar weaponry. Designs inspired by Xenonauts\' plasma weapons. Only with Beyond Our Reach.</p>'|safe) }}
+
+{{ m.family(fam["QuasarCharged"], "kwazaari-charge", "Kwazaari charge", "kwazaari", '<p>The top of the charge line, at Beyond Our Reach\'s Kwazaari tier, after kwazaari weaponry. Designs inspired by Helldivers 2. Only with Beyond Our Reach.</p>'|safe) }}

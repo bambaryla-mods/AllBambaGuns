@@ -1,4 +1,4 @@
-"""Build the AllBambaGuns player site.
+"""Build the Guns For All Tech Levels player site.
 
     python site/build.py            # writes site/_build
     python site/build.py --serve    # builds, then serves it on http://localhost:8000
@@ -7,7 +7,7 @@
 Every stat, icon and research cost is read from the mod's own defs, the way the
 game loads them: the root folder, then Launchers (vanilla) or CE (Combat
 Extended), later defs replacing earlier ones with the same defName. The written
-text lives in templates/index.html.
+text lives in templates/pages/, one file per page; templates/macros.html draws the tables.
 """
 from __future__ import annotations
 
@@ -22,6 +22,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
+from markupsafe import Markup
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
@@ -31,6 +32,30 @@ WORKSHOP = "https://steamcommunity.com/sharedfiles/filedetails/?id=" + (ROOT / "
 GITHUB = "https://github.com/bambaryla-mods/AllBambaGuns"
 BOR_SITE = "https://bambaryla-mods.github.io/RimworldBeyondOurReach/"
 SITE_URL = "https://bambaryla-mods.github.io/AllBambaGuns/"
+MOD_NAME = "Guns For All Post-Medieval Tech Levels"
+
+# Top bar tabs, in reading order: (slug, title). Each is templates/pages/<slug>.html.
+NAV = [
+    ("guns", "Guns"),
+    ("launchers", "Launchers"),
+    ("research", "Research"),
+    ("compatibility", "Compatibility"),
+    ("credits", "Credits"),
+]
+# Per page: the home page card text, whether it has the Vanilla / CE switch, and the card icons
+# as (family, row) picks from the extracted data.
+PAGES = {
+    "guns": ("Seven guns in every line, from proto-charge to Kwazaari, with vanilla and Combat Extended stats.", True,
+             [("IndustrialCharged", 2), ("SpacerBallistic", 2), ("UltraCharged", 2), ("QuasarCharged", 2)]),
+    "launchers": ("Single-use rocket launchers for every tier, from HE to EMP and toxic.", True,
+                  [("DisposableLaunchers", 0), ("DisposableLaunchers", 3), ("DisposableLaunchers", 6)]),
+    "research": ("The research project behind each line, and how Beyond Our Reach and Combat Extended change it.", True,
+                 [("SpacerBallistic", 3), ("UltraBallistic", 3), ("SolarCharged", 3)]),
+    "compatibility": ("What the mod needs, and what Combat Extended, Beyond Our Reach and other mods add to it.", False,
+                      [("SpacerBallistic", 4), ("UltraCharged", 4), ("SolarCharged", 4)]),
+    "credits": ("Who made the mod, and its license.", False,
+                [("SpacerBallistic", 0), ("UltraBallistic", 0), ("QuasarCharged", 0)]),
+}
 
 # Which folders each mode loads, from LoadFolders.xml (MuzzleFlash only adds visuals).
 MODES = {"vanilla": ["", "Launchers"], "ce": ["", "CE"]}
@@ -365,6 +390,20 @@ def pct(v) -> str:
     return "—" if v is None else f"{round(v * 100)}%"
 
 
+def icon(fam: dict, key: str, row: int) -> str | None:
+    items = fam[key]["items"]
+    if row >= len(items):
+        return None
+    w = items[row].get("vanilla") or items[row].get("ce")
+    return w["icon"]
+
+
+def toc(html: str) -> list[dict]:
+    """The page's h2 headings, for the sidebar."""
+    return [{"id": m.group(1), "name": Markup(m.group(2).strip())}
+            for m in re.finditer(r'<h2[^>]*\sid="([^"]+)"[^>]*>(.*?)</h2>', html, re.S)]
+
+
 def build(out: Path) -> None:
     data = collect()
     if out.exists():
@@ -384,20 +423,35 @@ def build(out: Path) -> None:
                       undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
     env.filters["num"] = fmt
     env.filters["pct"] = pct
-    env.filters["slug"] = lambda s: re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
     fam = {f["key"]: f for f in data["families"]}
+    shutil.copy(out / fam["UltraCharged"]["items"][2]["vanilla"]["icon"], out / "assets/favicon.png")
     about = ET.parse(ROOT / "About/About.xml").getroot()
-    html = env.get_template("index.html").render(
-        fam=fam, families=data["families"], research=data["research"],
-        about={"versions": [li.text for li in about.findall("supportedVersions/li")],
-               "license": (ROOT / "LICENSE").read_text(encoding="utf-8").strip()},
-        favicon=fam["UltraCharged"]["items"][2]["vanilla"]["icon"],
-        workshop=WORKSHOP, github=GITHUB, bor_site=BOR_SITE, site_url=SITE_URL,
-    )
-    (out / "index.html").write_text(html, encoding="utf-8")
+    common = {
+        "nav": NAV, "mod_name": MOD_NAME, "workshop": WORKSHOP, "github": GITHUB, "bor_site": BOR_SITE,
+        "site_url": SITE_URL,
+    }
+    page_data = {
+        "fam": fam, "research": data["research"], "bor_site": BOR_SITE,
+        "about": {"versions": [li.text for li in about.findall("supportedVersions/li")],
+                  "license": (ROOT / "LICENSE").read_text(encoding="utf-8").strip()},
+    }
+
+    pages = [{"slug": slug, "title": title, "summary": PAGES[slug][0], "modes": PAGES[slug][1],
+              "icons": [i for i in (icon(fam, k, r) for k, r in PAGES[slug][2]) if i]} for slug, title in NAV]
+    for i, page in enumerate(pages):
+        html = env.get_template(f"pages/{page['slug']}.html").render(**page_data)
+        out_html = env.get_template("page.html").render(
+            **common, page=page, active=page["slug"], content=Markup(html), toc=toc(html),
+            prev=pages[i - 1] if i > 0 else None, next=pages[i + 1] if i + 1 < len(pages) else None,
+        )
+        (out / f"{page['slug']}.html").write_text(out_html, encoding="utf-8")
+
+    intro = env.get_template("pages/index.html").render(**page_data)
+    home = env.get_template("home.html").render(**common, active="", content=Markup(intro), cards=pages)
+    (out / "index.html").write_text(home, encoding="utf-8")
     (out / ".nojekyll").write_text("")
     n = sum(len(f["items"]) for f in data["families"])
-    print(f"Built {out} ({n} weapons, {len(data['textures'])} textures)")
+    print(f"Built {out} ({len(pages) + 1} pages, {n} weapons, {len(data['textures'])} textures)")
 
 
 def main() -> None:

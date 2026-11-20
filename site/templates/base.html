@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ mod_name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}A RimWorld mod that fills the gaps in vanilla's gun lineup: ballistic guns past Industrial, charge guns before and after Spacer, and disposable launchers for every tier.{% endblock %}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ mod_name }}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.description() }}">
+<meta property="og:image" content="{{ site_url }}assets/preview.png">
+<meta name="theme-color" content="#1b2838">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>
+/* Runs before the page paints: picks Vanilla or CE stats from ?mode= or the last choice. Without JS both tables show. */
+(function(r){r.classList.add("js");var m="vanilla";try{var p=new URLSearchParams(location.search).get("mode");m=(p==="ce"||p==="vanilla")?p:(localStorage.getItem("bor-mode")==="ce"?"ce":"vanilla")}catch(e){}r.setAttribute("data-mode",m)})(document.documentElement);
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="assets/favicon.png" alt="" width="28" height="28">Guns For All Tech Levels</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="topnav">Menu</button>
+  <nav id="topnav" class="topnav" aria-label="Sections">
+    {% for slug, title in nav %}
+    <a href="{{ slug }}.html"{% if slug == active %} class="on" aria-current="page"{% endif %}>{{ title }}</a>
+    {% endfor %}
+  </nav>
+</header>
+{% block body %}{% endblock %}
+<footer class="footer">
+  <p><a href="{{ workshop }}">Steam Workshop</a> · <a href="{{ github }}">GitHub</a> · <a href="{{ bor_site }}">Beyond Our Reach</a></p>
+  <p class="muted">Every stat, icon and research cost on this site is read from the mod's own files each time it updates.</p>
+  <div class="other-mods">
+    <p class="other-mods-title">Other Bamba Mods</p>
+    <ul>
+      <li><a href="https://bambaryla-mods.github.io/AllBambaArmors/">Armors For All Tech Levels</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3787547731">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/AllBambaMelee/">Melee Weapons For All Tech Levels</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3726524693">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/AllBambaTurrets/">Turrets For All Tech Levels</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3800286808">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/RimworldBeyondOurReach/">Beyond Our Reach</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3768354639">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/ResourceGeneratorFramework/">Resource Generator Framework</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3768286295">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/rimworldExpeditions/">Expeditions</a></li>
+      <li><a href="https://bambaryla-mods.github.io/rimworldCommRecruiter/">Comm Recruiter</a></li>
+      <li><a href="https://bambaryla-mods.github.io/RimworldTechLeveler/">Tech Leveler</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3828217997">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/EvenMoreLinkables/">Even More Linkables</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3536014093">Workshop</a></li>
+      <li><a href="https://bambaryla-mods.github.io/VanillaChemfuelExpandedPlusUltra/">Vanilla Chemfuel Expanded Plus Ultra</a> <a class="ws" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3231387549">Workshop</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

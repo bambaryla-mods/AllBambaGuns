@@ -13,7 +13,9 @@ The page at https://bambaryla-mods.github.io/AllBambaGuns/ shows players what th
 
 It resolves inheritance between the mod's own defs and picks up the research projects the BOR patches add. Every stat, icon and research cost on the page comes from there, so the tables follow rebalances by themselves. Other patches (like `CE/Patches/Ultra_Availability.xml`) aren't applied; the page text explains them instead.
 
-The written text lives in `templates/index.html` and has to be updated by hand when a mechanic changes. Family names and order are in `FAMILIES` at the top of `build.py`.
+The site has a home page and one page per tab in the top bar. The written text lives in `templates/pages/` (one file per page, `index.html` is the home page text) and has to be updated by hand when a mechanic changes. The tables come from `templates/macros.html`; `base.html`, `home.html` and `page.html` are the shell shared with the Armors, Melee and Turrets sites.
+
+The tabs, their order, the home page card text and card icons are in `NAV` and `PAGES` at the top of `build.py`. Family names and order are in `FAMILIES`.
 
 ## Building and previewing
 

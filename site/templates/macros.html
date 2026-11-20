@@ -1,0 +1,153 @@
+{# Tables the pages pull in. Every number and icon arrives already read from the defs (see build.py). #}
+
+{% macro name_cell(w) -%}
+<th scope="row" class="name">
+  <div class="name-wrap">
+    {% if w.icon %}<img src="{{ w.icon }}" alt="" loading="lazy" width="40" height="40">{% else %}<span class="noicon" aria-hidden="true"></span>{% endif %}
+    <div>
+      <span class="label" title="{{ w.description }}">{{ w.label }}</span>
+      {% if w.research or w.skill %}
+      <span class="made">
+        {%- if w.research %}<span title="Research needed">{{ w.research|join(", ") }}</span>{% endif -%}
+        {%- if w.research and w.skill %} · {% endif -%}
+        {%- if w.skill %}<span title="Crafting skill needed">crafting {{ w.skill|num }}</span>{% endif -%}
+      </span>
+      {% else %}
+      <span class="made">not craftable</span>
+      {% endif %}
+      {% for r in w.requires %}<span class="badge" title="Only with {{ r }}">{{ r }}</span>{% endfor %}
+    </div>
+  </div>
+</th>
+{%- endmacro %}
+
+{% macro round_damage(a, named) -%}
+{{ a.damage|num }}{% if a.pellets and a.pellets > 1 %} ×{{ a.pellets|num }}{% endif %}
+{%- if a.damage_type %} <span class="dtype">{{ a.damage_type }}</span>{% endif %}
+{%- if named and a.name %} <span class="dtype">({{ a.name }})</span>{% endif %}
+{%- if a.secondary %}<span class="note">{{ a.secondary|join(", ") }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro ammo_details(s) -%}
+{% if s.ammo|length > 1 %}
+<details class="ammo">
+  <summary>{{ s.ammo|length }} ammo types</summary>
+  <table class="mini">
+    <thead><tr><th>Ammo</th><th>Damage</th><th>Sharp</th><th>Blunt</th></tr></thead>
+    <tbody>
+    {% for a in s.ammo %}
+      <tr><th scope="row">{{ a.name }}</th><td>{{ round_damage(a, False) }}</td><td>{{ a.ap_sharp|num }}</td><td>{{ a.ap_blunt|num }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</details>
+{% endif %}
+{%- endmacro %}
+
+{% macro gun_tables(f) %}
+{% set vrows = f["items"]|selectattr("vanilla", "defined")|map(attribute="vanilla")|list %}
+{% set crows = f["items"]|selectattr("ce", "defined")|map(attribute="ce")|list %}
+<div class="vanilla-only"><p class="mode-label">Vanilla</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Gun</th><th scope="col" title="Damage per shot">Damage</th><th scope="col" title="Armor penetration">AP</th>
+    <th scope="col" title="Shots per burst">Burst</th><th scope="col">Range</th><th scope="col" title="Aiming time before the first shot">Warmup</th>
+    <th scope="col" title="Time between bursts">Cooldown</th><th scope="col" title="Accuracy at touch / short / medium / long range">Accuracy</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in vrows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.damage|num }}{% if s.damage_type %} <span class="dtype">{{ s.damage_type }}</span>{% endif %}</td>
+      <td>{{ s.ap|pct }}</td><td>{{ s.burst }}</td><td>{{ s.range|num(1) }}</td>
+      <td>{{ s.warmup|num }} s</td><td>{{ s.cooldown|num }} s</td>
+      <td class="acc">{% for a in s.accuracy %}{{ a|pct }}{% if not loop.last %} / {% endif %}{% endfor %}</td>
+      <td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Gun</th><th scope="col">Caliber</th><th scope="col" title="Damage of the default ammo">Damage</th>
+    <th scope="col" title="Sharp penetration, mm RHA">Sharp</th><th scope="col" title="Blunt penetration, MPa">Blunt</th>
+    <th scope="col">Magazine</th><th scope="col">Reload</th><th scope="col" title="Shots per burst (aimed burst in brackets)">Burst</th>
+    <th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Cooldown</th><th scope="col" title="Sights efficiency">Sights</th>
+    <th scope="col" title="Shot spread">Spread</th><th scope="col" title="Sway factor">Sway</th><th scope="col">Bulk</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in crows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.caliber or "—" }}{{ ammo_details(s) }}</td>
+      <td>{{ round_damage(s.default, s.ammo|length > 1) }}</td>
+      <td>{{ s.default.ap_sharp|num }}</td><td>{{ s.default.ap_blunt|num }}</td>
+      <td>{{ s.magazine or "—" }}</td><td>{{ s.reload|num }}{% if s.reload is not none %} s{% endif %}</td>
+      <td>{{ s.burst }}{% if s.aimed_burst %} ({{ s.aimed_burst }}){% endif %}</td>
+      <td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.cooldown|num }} s</td>
+      <td>{{ s.sights|num }}</td><td>{{ s.spread|num(3) }}</td><td>{{ s.sway|num }}</td><td>{{ s.bulk|num }}</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+{% endmacro %}
+
+{% macro launcher_tables(f) %}
+{% set vrows = f["items"]|selectattr("vanilla", "defined")|map(attribute="vanilla")|list %}
+{% set crows = f["items"]|selectattr("ce", "defined")|map(attribute="ce")|list %}
+<div class="vanilla-only"><p class="mode-label">Vanilla</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr><th scope="col">Launcher</th><th scope="col">Damage</th><th scope="col">Blast radius</th><th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Mass</th></tr></thead>
+  <tbody>
+  {% for w in vrows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.damage|num }} <span class="dtype">{{ s.damage_type }}</span></td>
+      <td>{{ s.explosion|num(1) }}</td><td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Launcher</th><th scope="col" title="Rockets fired before the launcher is spent">Shots</th>
+    <th scope="col" title="Damage of the direct hit">Hit damage</th><th scope="col" title="Sharp penetration, mm RHA">Sharp</th>
+    <th scope="col" title="Explosion damage and radius">Blast</th><th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Bulk</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in crows %}{% set s = w.stats %}{% set b = s.default.blast %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.burst }}</td>
+      <td>{{ s.default.damage|num }}{% if s.default.damage_type %} <span class="dtype">{{ s.default.damage_type }}</span>{% endif %}</td>
+      <td>{{ s.default.ap_sharp|num }}</td>
+      <td>{% if b %}{% if b.damage %}{{ b.damage|num }} {% endif %}<span class="dtype">{{ b.type }}</span>, {{ b.radius|num(1) }} tiles{% else %}—{% endif %}</td>
+      <td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.bulk|num }}</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+{% endmacro %}
+
+{% macro research_table(rows) %}
+<div class="table-scroll"><table class="stats research">
+  <thead><tr><th scope="col">Project</th><th scope="col">Cost</th><th scope="col">Tech</th><th scope="col">Needs</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <th scope="row" class="name"><span class="label">{{ r.label }}</span><span class="rdesc">{{ r.description }}</span>
+        {% for q in r.requires %}<span class="badge">{{ q }}</span>{% endfor %}</th>
+      <td>{{ r.cost|num(0) }}</td><td>{{ r.tech }}</td><td class="wrap">{{ r.prereqs|join(", ") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% endmacro %}
+
+{% macro family(f, id, title, tier, blurb) %}
+<h2 class="tier-head tier-{{ tier }}" id="{{ id }}">{{ title }}</h2>
+{{ blurb }}
+{{ gun_tables(f) }}
+{% endmacro %}
