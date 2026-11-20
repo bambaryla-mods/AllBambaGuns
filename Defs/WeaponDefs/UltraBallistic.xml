@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+    Ultra Ballistic (conventional) weapons
+    Derived from Spacer Ballistic tier: Damage x1.15, WorkToMake x0.75, Cost x0.85
+    Materials: Plasteel + ComponentSpacer (same tier, just reduced quantities via efficiency)
+    Crafted at: FabricationBench  |  Research: PrecisionRifling  |  Crafting skill: varies
+    TechLevel: Ultra
+    Note: conventional/ultra/ texture folder is currently empty.
+          Add [pistol|rifle|bullpup|dmr|shotgun|lmg|sniper].png to use proper visuals.
+  -->
+
+	<!-- ==================== PISTOL ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBPistol</defName>
+		<label>precision pistol bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<speed>55</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBPistol</defName>
+		<label>glitterworld ballistic pistol</label>
+		<description>A handy sidearm with low stopping power, making up for it in weight and compactness. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>0.87</AccuracyTouch>
+			<AccuracyShort>0.77</AccuracyShort>
+			<AccuracyMedium>0.5</AccuracyMedium>
+			<AccuracyLong>0.4</AccuracyLong>
+			<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>20</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>800</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBPistol</defaultProjectile>
+				<warmupTime>0.3</warmupTime>
+				<range>26.9</range>
+				<soundCast>Shot_Autopistol</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== BULLPUP ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBBullpup</defName>
+		<label>precision bullpup bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBBullpup</defName>
+		<label>glitterworld ballistic bullpup</label>
+		<description>A specific rifle implement with its action moved behind the grip, allowing more muzzle for less rifle. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/bullpup</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<Mass>3.0</Mass>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.8</AccuracyShort>
+			<AccuracyMedium>0.75</AccuracyMedium>
+			<AccuracyLong>0.65</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>30</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>810</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBBullpup</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>30.9</range>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== Battle RIFLE ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBBattleRifle</defName>
+		<label>precision battle rifle bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>17</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBBattleRifle</defName>
+		<label>glitterworld ballistic battle rifle</label>
+		<description>A classic rifle, the mainstay of any infantry-based military. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>38000</WorkToMake>
+			<Mass>3.5</Mass>
+			<AccuracyTouch>0.65</AccuracyTouch>
+			<AccuracyShort>0.78</AccuracyShort>
+			<AccuracyMedium>0.75</AccuracyMedium>
+			<AccuracyLong>0.65</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>820</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBBattleRifle</defaultProjectile>
+				<warmupTime>1.7</warmupTime>
+				<range>34.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== DMR ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBDMR</defName>
+		<label>precision DMR bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>23</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBDMR</defName>
+		<label>glitterworld ballistic dmr</label>
+		<description>A single-shot, mid-range and mid-damage gun with a scope. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/dmr</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<Mass>3.0</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.85</AccuracyMedium>
+			<AccuracyLong>0.7</AccuracyLong>
+			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>20</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>830</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBDMR</defaultProjectile>
+				<warmupTime>2.0</warmupTime>
+				<range>39.9</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SHOTGUN ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBShotgun</defName>
+		<label>precision shotgun blast</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<armorPenetrationBase>0.16</armorPenetrationBase>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBShotgun</defName>
+		<label>glitterworld ballistic shotgun</label>
+		<description>A magazine-fed, burst-fire shotgun built on a chain shotgun action, a glitterworld ballistic design with a light frame and tight tolerances. Short-ranged, but extraordinarily dangerous up close.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>ShortShots</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>3.2</Mass>
+			<AccuracyTouch>0.66</AccuracyTouch>
+			<AccuracyShort>0.72</AccuracyShort>
+			<AccuracyMedium>0.62</AccuracyMedium>
+			<AccuracyLong>0.52</AccuracyLong>
+			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+		</statBases>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>840</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBShotgun</defaultProjectile>
+				<warmupTime>0.9</warmupTime>
+				<range>14.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== LMG ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBLMG</defName>
+		<label>precision LMG bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>16</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBLMG</defName>
+		<label>glitterworld ballistic lmg</label>
+		<description>A "delete-this-direction"-kinda weapon designed for suppresive fire and outfitted with a bipod. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/lmg</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>32000</WorkToMake>
+			<Mass>7.5</Mass>
+			<AccuracyTouch>0.45</AccuracyTouch>
+			<AccuracyShort>0.55</AccuracyShort>
+			<AccuracyMedium>0.43</AccuracyMedium>
+			<AccuracyLong>0.45</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>45</Steel>
+			<Plasteel>30</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>850</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBLMG</defaultProjectile>
+				<warmupTime>1.8</warmupTime>
+				<range>27.9</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>Shot_Minigun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SNIPER ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UBSniper</defName>
+		<label>precision sniper bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/ultra/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>33</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBSniper</defName>
+		<label>glitterworld ballistic sniper rifle</label>
+		<description>A single-shot, high-range and high-damage gun with a scope and bipod. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>38000</WorkToMake>
+			<Mass>3.7</Mass>
+			<AccuracyTouch>0.6</AccuracyTouch>
+			<AccuracyShort>0.8</AccuracyShort>
+			<AccuracyMedium>0.95</AccuracyMedium>
+			<AccuracyLong>0.99</AccuracyLong>
+			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>60</Steel>
+			<Plasteel>30</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>9</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>860</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UBSniper</defaultProjectile>
+				<warmupTime>3.2</warmupTime>
+				<range>46.9</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+    Spacer Ballistic (conventional) weapons
+    Derived from Industrial Ballistic tier: Damage x1.15, WorkToMake x0.75, Cost x0.85
+    Materials: Plasteel + ComponentSpacer (upgraded from industrial steel+CI)
+    Crafted at: TableMachining  |  Research: PrecisionRifling  |  Crafting skill: varies
+    TechLevel: Spacer
+    Note: conventional/spacer/rifle texture is not yet present; add rifle.png to that folder.
+  -->
+
+	<!-- ==================== PISTOL ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBPistol</defName>
+		<label>advanced pistol bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<speed>55</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBPistol</defName>
+		<label>advanced ballistic pistol</label>
+		<description>A handy sidearm with low stopping power, making up for it in weight and compactness. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>1.1</Mass>
+			<AccuracyTouch>0.85</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.45</AccuracyMedium>
+			<AccuracyLong>0.35</AccuracyLong>
+			<RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>30</Steel>
+			<Plasteel>5</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+			<displayPriority>700</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBPistol</defaultProjectile>
+				<warmupTime>0.3</warmupTime>
+				<range>26.9</range>
+				<soundCast>Shot_Autopistol</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== BULLPUP ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBBullpup</defName>
+		<label>advanced bullpup bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>13</damageAmountBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBBullpup</defName>
+		<label>advanced ballistic bullpup</label>
+		<description>A specific rifle implement with its action moved behind the grip, allowing more muzzle for less rifle. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/bullpup</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>32000</WorkToMake>
+			<Mass>3.2</Mass>
+			<AccuracyTouch>0.65</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.7</AccuracyMedium>
+			<AccuracyLong>0.6</AccuracyLong>
+			<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>45</Steel>
+			<Plasteel>5</Plasteel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<displayPriority>710</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBBullpup</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>31.9</range>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== Battle RIFLE ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBBattleRifle</defName>
+		<label>advanced battle rifle bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBRifle</defName>
+		<label>advanced ballistic battle rifle</label>
+		<description>A classic rifle, the mainstay of any infantry-based military. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>3.7</Mass>
+			<AccuracyTouch>0.64</AccuracyTouch>
+			<AccuracyShort>0.73</AccuracyShort>
+			<AccuracyMedium>0.68</AccuracyMedium>
+			<AccuracyLong>0.58</AccuracyLong>
+			<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>50</Steel>
+			<Plasteel>10</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>720</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBBattleRifle</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>32.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== DMR ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBDMR</defName>
+		<label>advanced DMR bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBDMR</defName>
+		<label>advanced ballistic dmr</label>
+		<description>A single-shot, mid-range and mid-damage gun with a scope. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/dmr</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>33000</WorkToMake>
+			<Mass>3.1</Mass>
+			<AccuracyTouch>0.55</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.85</AccuracyMedium>
+			<AccuracyLong>0.80</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>45</Steel>
+			<Plasteel>10</Plasteel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<displayPriority>730</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBDMR</defaultProjectile>
+				<warmupTime>2.0</warmupTime>
+				<range>38.9</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SHOTGUN ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBShotgun</defName>
+		<label>advanced shotgun blast</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<armorPenetrationBase>0.14</armorPenetrationBase>
+			<speed>55</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBShotgun</defName>
+		<label>advanced ballistic shotgun</label>
+		<description>A magazine-fed, burst-fire shotgun built on a chain shotgun action, refined with advanced materials and tighter machining. Short-ranged, but extraordinarily dangerous up close.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>ShortShots</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<Mass>3.4</Mass>
+			<AccuracyTouch>0.62</AccuracyTouch>
+			<AccuracyShort>0.68</AccuracyShort>
+			<AccuracyMedium>0.58</AccuracyMedium>
+			<AccuracyLong>0.48</AccuracyLong>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+		</statBases>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>50</Steel>
+			<Plasteel>10</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>740</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBShotgun</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>13.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== LMG ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBLMG</defName>
+		<label>advanced LMG bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>46</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBLMG</defName>
+		<label>advanced ballistic lmg</label>
+		<description>A "delete-this-direction"-kinda weapon designed for suppresive fire and outfitted with a bipod. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/lmg</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>8.0</Mass>
+			<AccuracyTouch>0.43</AccuracyTouch>
+			<AccuracyShort>0.5</AccuracyShort>
+			<AccuracyMedium>0.38</AccuracyMedium>
+			<AccuracyLong>0.4</AccuracyLong>
+			<RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>60</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<displayPriority>750</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBLMG</defaultProjectile>
+				<warmupTime>1.8</warmupTime>
+				<range>26.9</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>Shot_Minigun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SNIPER ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_SBSniper</defName>
+		<label>advanced sniper bullet</label>
+		<graphicData>
+			<texPath>Projectile/Ballistic/spacer/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>29</damageAmountBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_SBSniper</defName>
+		<label>advanced ballistic sniper rifle</label>
+		<description>A single-shot, high-range and high-damage gun with a scope and bipod. This weapon is an improvement over industrial/modern designs with the use of more advanced, precise techniques and better materials.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>conventional/spacer/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>42000</WorkToMake>
+			<Mass>3.9</Mass>
+			<AccuracyTouch>0.55</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>0.95</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Steel>70</Steel>
+			<Plasteel>20</Plasteel>
+			<ComponentIndustrial>9</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<displayPriority>760</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_SBSniper</defaultProjectile>
+				<warmupTime>3.2</warmupTime>
+				<range>45.9</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

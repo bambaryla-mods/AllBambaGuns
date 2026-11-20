@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+    advanced charge weapons
+    Derived from Ultra Charge tier: Damage x0.75, WorkToMake x1.25, Cost x1.10
+    Materials: Steel + ComponentSpacer (one tier below ultra spacer components)
+    Crafted at: FabricationBench  |  Research: ChargedShot  |  Crafting skill: 8
+    Armor penetration: 0.30
+    TechLevel: Spacer
+  -->
+
+	<!-- ==================== PISTOL ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCPistol</defName>
+		<label>advanced charge pistol shot</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>13</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCPistol</defName>
+		<label>advanced charge pistol</label>
+		<description>A handy sidearm with low stopping power, making up for it in weight and compactness. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>1.4</Mass>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.65</AccuracyShort>
+			<AccuracyMedium>0.48</AccuracyMedium>
+			<AccuracyLong>0.35</AccuracyLong>
+			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>45</Plasteel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>600</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCPistol</defaultProjectile>
+				<warmupTime>0.3</warmupTime>
+				<range>25.9</range>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== BULLPUP ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCBullpup</defName>
+		<label>advanced charge bullpup shot</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>14</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCBullpup</defName>
+		<label>advanced charge bullpup</label>
+		<description>A specific rifle implement with its action moved behind the grip, allowing more muzzle for less rifle. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/bullpup</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>58000</WorkToMake>
+			<Mass>3.4</Mass>
+			<AccuracyTouch>0.58</AccuracyTouch>
+			<AccuracyShort>0.66</AccuracyShort>
+			<AccuracyMedium>0.6</AccuracyMedium>
+			<AccuracyLong>0.5</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>65</Plasteel>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedSpecialistChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>610</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCBullpup</defaultProjectile>
+				<warmupTime>0.9</warmupTime>
+				<range>28.9</range>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== Battle RIFLE ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCBattleRifle</defName>
+		<label>advanced charge battle rifle shot</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>16</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCBattleRifle</defName>
+		<label>advanced charge battle rifle</label>
+		<description>A classic rifle, the mainstay of any infantry-based military. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>60000</WorkToMake>
+			<Mass>4.0</Mass>
+			<AccuracyTouch>0.54</AccuracyTouch>
+			<AccuracyShort>0.64</AccuracyShort>
+			<AccuracyMedium>0.56</AccuracyMedium>
+			<AccuracyLong>0.47</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>70</Plasteel>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>620</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCBattleRifle</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>29.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== DMR ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCDMR</defName>
+		<label>advanced charge DMR shot</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>90</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCDMR</defName>
+		<label>advanced charge DMR</label>
+		<description>A single-shot, mid-range and mid-damage gun with a scope. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/dmr</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_ChargeLance</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>70000</WorkToMake>
+			<Mass>3.0</Mass>
+			<AccuracyTouch>0.62</AccuracyTouch>
+			<AccuracyShort>0.83</AccuracyShort>
+			<AccuracyMedium>0.82</AccuracyMedium>
+			<AccuracyLong>0.75</AccuracyLong>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>75</Plasteel>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedSpecialistChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>630</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCDMR</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>30.9</range>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SHOTGUN ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCShotgun</defName>
+		<label>advanced charge shotgun blast</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>13</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<stoppingPower>3</stoppingPower>
+			<speed>55</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCShotgun</defName>
+		<label>advanced charge shotgun</label>
+		<description>A magazine-fed, burst-fire shotgun built on a chain shotgun action, an advanced charge system with a fast, smooth action. Short-ranged, but extraordinarily dangerous up close.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>52000</WorkToMake>
+			<Mass>3.4</Mass>
+			<AccuracyTouch>0.68</AccuracyTouch>
+			<AccuracyShort>0.74</AccuracyShort>
+			<AccuracyMedium>0.64</AccuracyMedium>
+			<AccuracyLong>0.54</AccuracyLong>
+			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>60</Plasteel>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>640</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCShotgun</defaultProjectile>
+				<warmupTime>0.9</warmupTime>
+				<range>14.9</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== LMG ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCLMG</defName>
+		<label>advanced charge LMG shot</label>
+		<graphicData>
+			<texPath>Projectile/Charge/spacer/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>11</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCLMG</defName>
+		<label>advanced charge LMG</label>
+		<description>A "delete-this-direction"-kinda weapon designed for suppresive fire and outfitted with a bipod. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/lmg</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>75000</WorkToMake>
+			<Mass>8.1</Mass>
+			<AccuracyTouch>0.40</AccuracyTouch>
+			<AccuracyShort>0.48</AccuracyShort>
+			<AccuracyMedium>0.36</AccuracyMedium>
+			<AccuracyLong>0.28</AccuracyLong>
+			<RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>85</Plasteel>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>650</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCLMG</defaultProjectile>
+				<warmupTime>1.8</warmupTime>
+				<range>27.9</range>
+				<burstShotCount>8</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SNIPER ==================== -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ABG_Bullet_UCSniper</defName>
+		<label>advanced charge sniper shot</label>
+		<graphicData>
+			<texPath>Things/Projectile/ChargeLanceShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>21</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>120</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UCSniper</defName>
+		<label>advanced charge sniper rifle</label>
+		<description>A single-shot, high-range and high-damage gun with a scope and bipod. This weapon utilizes more precise engineering to eliminate energy losses during the firing process.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>charge/spacer/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_ChargeLance</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>75000</WorkToMake>
+			<Mass>8.0</Mass>
+			<AccuracyTouch>0.6</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.8</AccuracyMedium>
+			<AccuracyLong>0.82</AccuracyLong>
+			<RangedWeapon_Cooldown>2.7</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<costList>
+			<Plasteel>80</Plasteel>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_AdvancedHeavyChargeWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>660</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>ABG_Bullet_UCSniper</defaultProjectile>
+				<warmupTime>1.7</warmupTime>
+				<range>41.9</range>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

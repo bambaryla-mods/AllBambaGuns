@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Beyond Our Reach</li>
+            <li>Beyond Our Reach :: Redux</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarLaunchers</defName>
+                    <label>solar launchers</label>
+                    <description>Develop advanced solar-tier disposable launchers using Beyond Our Reach materials and Beyond Spacer manufacturing expertise.</description>
+                    <baseCost>40000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_SpacerLaunchers</li>
+                        <li>BOR_Research_Weapons_I</li>
+                    </prerequisites>
+                    <researchViewX>4.00</researchViewX>
+                    <researchViewY>5.80</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarEMPLaunchers</defName>
+                    <label>solar EMP launchers</label>
+                    <description>Develop advanced solar-tier EMP disposable launchers with superior electromagnetic pulse capabilities.</description>
+                    <baseCost>30000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_EMPLaunchers</li>
+                        <li>ABG_Research_SolarLaunchers</li>
+                        <li>BOR_Research_Weapons_I</li>
+                    </prerequisites>
+                    <researchViewX>5.50</researchViewX>
+                    <researchViewY>5.10</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarLaunchers</defName>
+                    <label>quasar launchers</label>
+                    <description>Unlock the most advanced quasar-tier disposable launchers, representing the pinnacle of launcher technology achievable with Beyond Our Reach materials.</description>
+                    <baseCost>48000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_UltraLaunchers</li>
+                        <li>BOR_Research_Weapons_II</li>
+                    </prerequisites>
+                    <researchViewX>7.50</researchViewX>
+                    <researchViewY>5.90</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarEMPLaunchers</defName>
+                    <label>quasar EMP launchers</label>
+                    <description>Develop the most advanced quasar-tier EMP launchers with unparalleled electromagnetic pulse capabilities.</description>
+                    <baseCost>36000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_QuasarLaunchers</li>
+                        <li>ABG_Research_SolarEMPLaunchers</li>
+                        <li>BOR_Research_Weapons_II</li>
+                    </prerequisites>
+                    <researchViewX>8.00</researchViewX>
+                    <researchViewY>4.90</researchViewY>
+                </ResearchProjectDef>
+            </value>
+        </match>
+    </Operation>
+</Patch>

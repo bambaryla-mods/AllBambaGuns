@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Patch>
+
+   <Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICPistol"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.32,0.1)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICBullpup"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+    
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICBattleRifle"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICDMR"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICShotgun"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICLMG"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+ 
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_ICSniper"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.65,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+ 
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCPistol"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.2,0.1)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>        
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCBullpup"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCBattleRifle"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+    
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCDMR"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCShotgun"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCLMG"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+    
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_UCSniper"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_ChargedMuzzleFalsh</def>
+                <drawSize>(1,1)</drawSize>
+                <offsets>
+                    <li>(0.61,0.04)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+   
+
+</Patch>

@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+    Ultra Ballistic (conventional) weapons
+    Derived from Spacer Ballistic tier: Damage x1.15, WorkToMake x0.75, Cost x0.85
+    Materials: Plasteel + ComponentSpacer (same tier, just reduced quantities via efficiency)
+    Crafted at: FabricationBench  |  Research: PrecisionRifling  |  Crafting skill: varies
+    TechLevel: Ultra
+    Note: conventional/ultra/ texture folder is currently empty.
+          Add [pistol|rifle|bullpup|dmr|shotgun|lmg|sniper].png to use proper visuals.
+  -->
+
+	<!-- ==================== PISTOL ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBPistol</defName>
+		<label>glitterworld ballistic pistol</label>
+		<description>A handy sidearm with low stopping power, making up for it in weight and compactness. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>1.0</Mass>
+			<RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.90</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>0.95</SwayFactor>
+			<Bulk>1.60</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_Sidearm</li>
+			<li>CE_AI_BROOM</li>
+			<li>CE_OneHandedWeapon</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>20</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>800</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.35</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_7x24mmHypersonic_FMJ</defaultProjectile>
+				<warmupTime>0.45</warmupTime>
+				<range>16</range>
+				<soundCast>Shot_Autopistol</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.2</reloadTime>
+				<ammoSet>AmmoSet_7x24mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== BULLPUP ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBBullpup</defName>
+		<label>glitterworld ballistic bullpup</label>
+		<description>A specific rifle implement with its action moved behind the grip, allowing more muzzle for less rifle. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/bullpup</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<Mass>3.0</Mass>
+			<RangedWeapon_Cooldown>0.35</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.10</SightsEfficiency>
+			<ShotSpread>0.02</ShotSpread>
+			<SwayFactor>1.22</SwayFactor>
+			<Bulk>6.9</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_AI_AR</li>
+		</weaponTags>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>30</Steel>
+			<Plasteel>15</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>810</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.38</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_65x36mmHypersonic_FMJ</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>62</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_65x36mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+				<aiUseBurstMode>TRUE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== Battle RIFLE ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBBattleRifle</defName>
+		<label>glitterworld ballistic battle rifle</label>
+		<description>A classic rifle, the mainstay of any infantry-based military. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>38000</WorkToMake>
+			<Mass>3.5</Mass>
+			<RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.20</SightsEfficiency>
+			<ShotSpread>0.01</ShotSpread>
+			<SwayFactor>1.50</SwayFactor>
+			<Bulk>10.50</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_AI_SR</li>
+		</weaponTags>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>820</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.80</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x44mmHypersonic_FMJ</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>68</range>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+				<soundCast>Shot_BoltActionRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>3.7</reloadTime>
+				<ammoSet>AmmoSet_8x44mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>2</aimedBurstShotCount>
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== DMR ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBDMR</defName>
+		<label>glitterworld ballistic dmr</label>
+		<description>A single-shot, mid-range and mid-damage gun with a scope. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/dmr</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<Mass>3.0</Mass>
+			<RangedWeapon_Cooldown>0.98</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.00</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1.25</SwayFactor>
+			<Bulk>10.00</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_AI_AR</li>
+			<li>Bipod_DMR</li>
+		</weaponTags>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>20</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterSpecialistBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>830</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.60</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x44mmHypersonic_FMJ</defaultProjectile>
+				<warmupTime>1.4</warmupTime>
+				<range>81</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.8</reloadTime>
+				<ammoSet>AmmoSet_8x44mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SHOTGUN ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBShotgun</defName>
+		<label>glitterworld ballistic shotgun</label>
+		<description>A magazine-fed, semi-automatic shotgun built on a chain shotgun action, a glitterworld ballistic design with a light frame and tight tolerances. Short-ranged, but extraordinarily dangerous up close.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>3.2</Mass>
+			<RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.10</SightsEfficiency>
+			<ShotSpread>0.10</ShotSpread>
+			<SwayFactor>1.18</SwayFactor>
+			<Bulk>6.0</Bulk>
+		</statBases>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>840</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.3</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_14GaugeHypersonic_Buck</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>20</range>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>12</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_14GaugeHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== LMG ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBLMG</defName>
+		<label>glitterworld ballistic lmg</label>
+		<description>A "delete-this-direction"-kinda weapon designed for suppresive fire and outfitted with a bipod. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/lmg</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>32000</WorkToMake>
+			<Mass>7.5</Mass>
+			<RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.10</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1.27</SwayFactor>
+			<Bulk>12.00</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_MachineGun</li>
+			<li>CE_AI_LMG</li>
+			<li>Bipod_LMG</li>
+		</weaponTags>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>45</Steel>
+			<Plasteel>30</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>850</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.22</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_8x44mmHypersonic_FMJ</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>72</range>
+				<burstShotCount>10</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<recoilPattern>Mounted</recoilPattern>
+				<soundCast>Shot_CE_BattleRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>100</magazineSize>
+				<reloadTime>4.0</reloadTime>
+				<ammoSet>AmmoSet_8x44mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>5</aimedBurstShotCount>
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- ==================== SNIPER ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>ABG_Gun_UBSniper</defName>
+		<label>glitterworld ballistic sniper rifle</label>
+		<description>A single-shot, high-range and high-damage gun with a scope and bipod. This weapon is the peak of ballistic technology in terms of physics and engineering, it can only be improved with better materials - if any exist.</description>
+		<techLevel>Ultra</techLevel>
+		<graphicData>
+			<texPath>conventional/ultra/sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>LongShots</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>38000</WorkToMake>
+			<Mass>3.7</Mass>
+			<RangedWeapon_Cooldown>1.34</RangedWeapon_Cooldown>
+			<SightsEfficiency>3.00</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1.22</SwayFactor>
+			<Bulk>10.50</Bulk>
+		</statBases>
+		<weaponTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+			<li>CE_AI_SR</li>
+			<li>Bipod_DMR</li>
+		</weaponTags>
+		<tradeTags Inherit="False">
+			<li>ABG_GlitterGun</li>
+		</tradeTags>
+		<costList>
+			<Steel>60</Steel>
+			<Plasteel>30</Plasteel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>ABG_Research_GlitterHeavyBallisticWeaponry</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>9</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>860</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.45</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_11x68mmHypersonic_AP</defaultProjectile>
+				<warmupTime>2.3</warmupTime>
+				<range>91</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_11x68mmHypersonic</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

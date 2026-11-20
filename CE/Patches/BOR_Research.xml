@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Beyond Our Reach</li>
+            <li>Beyond Our Reach :: Redux</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarChargeWeaponry</defName>
+                    <label>solar charge weaponry</label>
+                    <description>Sunsteel can withstand forces and temperatures that would compromise lesser materials. Applied to charged weapons, it lets the system run at higher energy levels without giving up reliability.</description>
+                    <baseCost>45000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_AdvancedChargeWeaponry</li>
+                        <li>BOR_Research_Weapons_I</li>
+                    </prerequisites>
+                    <researchViewX>5.00</researchViewX>
+                    <researchViewY>0.60</researchViewY>
+                </ResearchProjectDef>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarSpecialistChargeWeaponry</defName>
+                    <label>solar specialized weaponry</label>
+                    <description>Sunsteel allows specialized weapons to be built around more demanding designs without becoming fragile or unwieldy. The outcome is a set of weapons that can take their specific roles further than what conventional materials make possible.</description>
+                    <baseCost>35000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_SolarChargeWeaponry</li>
+                    </prerequisites>
+                    <researchViewX>6.00</researchViewX>
+                    <researchViewY>0.30</researchViewY>
+                </ResearchProjectDef>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarHeavyChargeWeaponry</defName>
+                    <label>solar heavy weaponry</label>
+                    <description>The greatest advantage of Sunsteel becomes apparent in weapons built to endure sustained punishment. Heavy charged weapons can keep working at higher output for longer periods, which makes their significant weight worth it.</description>
+                    <baseCost>35000</baseCost>
+                    <prerequisites>
+                        <li>ABG_Research_SolarChargeWeaponry</li>
+                    </prerequisites>
+                    <techLevel>Ultra</techLevel>
+                    <researchViewX>6.00</researchViewX>
+                    <researchViewY>1.10</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarChargeWeaponry</defName>
+                    <label>kwazaari charge weaponry</label>
+                    <description>Quasar Alloy improves on the properties that made Sunsteel useful in the first place. It lets charged weapons operate both cleaner and harder, with less energy lost between the charge system and the projectile.</description>
+                    <baseCost>54000</baseCost>
+                    <prerequisites>
+                        <li>ABG_Research_SolarChargeWeaponry</li>
+                        <li>BOR_Research_Weapons_II</li>
+                    </prerequisites>
+                    <techLevel>Ultra</techLevel>
+                    <researchViewX>12.00</researchViewX>
+                    <researchViewY>0.70</researchViewY>
+                </ResearchProjectDef>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarSpecialistChargeWeaponry</defName>
+                    <label>kwazaari specialized weaponry</label>
+                    <description>With the charge system further refined, specialized weapons can be tuned closer to their intended purpose. Quasar Alloy gives less opportunity for heat, vibration, and material fatigue to disrupt the design.</description>
+                    <baseCost>42000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_QuasarChargeWeaponry</li>
+                    </prerequisites>
+                    <researchViewX>13.00</researchViewX>
+                    <researchViewY>0.30</researchViewY>
+                </ResearchProjectDef>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarHeavyChargeWeaponry</defName>
+                    <label>kwazaari heavy weaponry</label>
+                    <description>Heavy weapons benefit most from the alloy's ability to endure sustained stress. The improvements are incremental rather than dramatic, but there are few better ways to make a weapon that is already powerful even more dependable.</description>
+                    <baseCost>42000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_QuasarChargeWeaponry</li>
+                    </prerequisites>
+                    <researchViewX>13.00</researchViewX>
+                    <researchViewY>1.10</researchViewY>
+                </ResearchProjectDef>
+
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarLaunchers</defName>
+                    <label>solar launchers</label>
+                    <description>Develop advanced solar-tier disposable launchers using Beyond Our Reach materials and Beyond Spacer manufacturing expertise.</description>
+                    <baseCost>40000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_SpacerLaunchers</li>
+                        <li>BOR_Research_Weapons_I</li>
+                    </prerequisites>
+                    <researchViewX>4.00</researchViewX>
+                    <researchViewY>5.80</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_I" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_SolarEMPLaunchers</defName>
+                    <label>solar EMP launchers</label>
+                    <description>Develop advanced solar-tier EMP disposable launchers with superior electromagnetic pulse capabilities.</description>
+                    <baseCost>30000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_EMPLaunchers</li>
+                        <li>ABG_Research_SolarLaunchers</li>
+                        <li>BOR_Research_Weapons_I</li>
+                    </prerequisites>
+                    <researchViewX>5.50</researchViewX>
+                    <researchViewY>5.10</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarLaunchers</defName>
+                    <label>quasar launchers</label>
+                    <description>Unlock the most advanced quasar-tier disposable launchers, representing the pinnacle of launcher technology achievable with Beyond Our Reach materials.</description>
+                    <baseCost>48000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_UltraLaunchers</li>
+                        <li>BOR_Research_Weapons_II</li>
+                    </prerequisites>
+                    <researchViewX>7.50</researchViewX>
+                    <researchViewY>5.90</researchViewY>
+                </ResearchProjectDef>
+                <ResearchProjectDef ParentName="BOR_Research_Base_II" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+                    <defName>ABG_Research_QuasarEMPLaunchers</defName>
+                    <label>quasar EMP launchers</label>
+                    <description>Develop the most advanced quasar-tier EMP launchers with unparalleled electromagnetic pulse capabilities.</description>
+                    <baseCost>36000</baseCost>
+                    <techLevel>Ultra</techLevel>
+                    <prerequisites>
+                        <li>ABG_Research_QuasarLaunchers</li>
+                        <li>ABG_Research_SolarEMPLaunchers</li>
+                        <li>BOR_Research_Weapons_II</li>
+                    </prerequisites>
+                    <researchViewX>8.00</researchViewX>
+                    <researchViewY>4.90</researchViewY>
+                </ResearchProjectDef>
+            </value>
+        </match>
+    </Operation>
+</Patch>

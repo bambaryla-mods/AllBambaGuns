@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>bambaryla.AllBambaGuns</packageId>
+  <name>Guns For All Post-Medieval Tech Levels</name>
+  <author>Bambaryla, KylarZ, Haderoth, Samael Gray</author>
+  <description>Fills the weaponry gaps across tech levels.
+
+Vanilla RimWorld has conventional (ballistic) weapons at industrial level and charge weapons at ultra/spacer level, leaving spacer-tier conventional weapons and industrial/spacer-tier charge weapons entirely absent.
+
+This mod adds:
+- Industrial Charge: crude charge weapons built with industrial-era components (crude charge pistol, rifle, bullpup, DMR, shotgun, LMG, sniper)
+- Spacer Charge: refined charge weapons using spacer-grade steel components (spacer charge pistol, rifle, bullpup, DMR, shotgun, LMG, sniper)
+- Spacer Ballistic: advanced conventional weapons precision-machined from plasteel (advanced pistol, rifle, bullpup, DMR, shotgun, LMG, sniper rifle)
+- Ultra Ballistic: the pinnacle of conventional ballistic technology (precision pistol, rifle, bullpup, DMR, shotgun, LMG, sniper rifle)
+
+With Combat Extended:
+- Industrial charge weapons don't exist and instead the vanilla charge-level is extended with the pistol, battle rifl, rifle, DMR, shotgun, LMG and sniper rifle.
+- Expandable launchers with tiers and damage types (e.g. industrial HE, spacer EMP)
+
+With Beyond Our Reach:
+- Solar and Quasar level charge weapons (solar pistol, rifle, bullpup, DMR, shotgun, LMG, sniper)
+With BOR and CE:
+- Solar and Quasar level multi-fire expandable launchers
+
+Each tier introduces two new weapon types not found in vanilla:
+- Bullpup: compact assault rifle with a four-shot burst
+- DMR (Designated Marksman Rifle): lighter and faster-aiming than a sniper rifle, at the cost of some damage and range
+
+All weapons have custom research and crafting recipes, and are balanced to fit their respective tech levels.
+
+Credits:
+- Textures by Haderoth
+- Initial design by Bambaryła
+- CE balancing by Bambaryła and Samael Gray
+
+Inspirations:
+- Spacer and Ultra Conventional weapons: Mass Effect weapon designs
+- Industrial Charge weapons: real-life firearm designs
+- Spacer Charge weapons: Xenonauts laser weapon designs
+- Solar Charge weapons: Xenonauts plasma weapon designs
+- Quasar Charge weapons: Helldivers 2 weapon designs
+- Launchers: Star Wars, Helldivers 2, Killzone and real life designs.
+  </description>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+	<loadAfter>
+    <li>CETeam.CombatExtended</li>
+    <li>bambaryla.bor</li>
+    <li>bambaryla.bor.redux</li>
+  </loadAfter>
+</ModMetaData>

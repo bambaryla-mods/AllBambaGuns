@@ -1,0 +1,311 @@
+{# The written text of the site. Every number and icon comes from the defs (see build.py). #}
+
+{% macro name_cell(w) -%}
+<th scope="row" class="name">
+  <div class="name-wrap">
+    {% if w.icon %}<img src="{{ w.icon }}" alt="" loading="lazy" width="48" height="48">{% else %}<span class="noicon" aria-hidden="true"></span>{% endif %}
+    <div>
+      <span class="label" title="{{ w.description }}">{{ w.label }}</span>
+      {% if w.research or w.skill %}
+      <span class="made">
+        {%- if w.research %}<span title="Research needed">{{ w.research|join(", ") }}</span>{% endif -%}
+        {%- if w.research and w.skill %} · {% endif -%}
+        {%- if w.skill %}<span title="Crafting skill needed">crafting {{ w.skill|num }}</span>{% endif -%}
+      </span>
+      {% else %}
+      <span class="made">not craftable</span>
+      {% endif %}
+      {% for r in w.requires %}<span class="badge" title="Only with {{ r }}">{{ r }}</span>{% endfor %}
+    </div>
+  </div>
+</th>
+{%- endmacro %}
+
+{% macro round_damage(a, named) -%}
+{{ a.damage|num }}{% if a.pellets and a.pellets > 1 %} ×{{ a.pellets|num }}{% endif %}
+{%- if a.damage_type %} <span class="dtype">{{ a.damage_type }}</span>{% endif %}
+{%- if named and a.name %} <span class="dtype">({{ a.name }})</span>{% endif %}
+{%- if a.secondary %}<span class="note">{{ a.secondary|join(", ") }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro ammo_details(s) -%}
+{% if s.ammo|length > 1 %}
+<details class="ammo">
+  <summary>{{ s.ammo|length }} ammo types</summary>
+  <table class="mini">
+    <thead><tr><th>Ammo</th><th>Damage</th><th>Sharp</th><th>Blunt</th></tr></thead>
+    <tbody>
+    {% for a in s.ammo %}
+      <tr><th scope="row">{{ a.name }}</th><td>{{ round_damage(a, False) }}</td><td>{{ a.ap_sharp|num }}</td><td>{{ a.ap_blunt|num }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</details>
+{% endif %}
+{%- endmacro %}
+
+{% macro gun_tables(f) %}
+{% set vrows = f["items"]|selectattr("vanilla", "defined")|map(attribute="vanilla")|list %}
+{% set crows = f["items"]|selectattr("ce", "defined")|map(attribute="ce")|list %}
+<div class="vanilla-only"><p class="mode-label">Vanilla</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Gun</th><th scope="col" title="Damage per shot">Damage</th><th scope="col" title="Armor penetration">AP</th>
+    <th scope="col" title="Shots per burst">Burst</th><th scope="col">Range</th><th scope="col" title="Aiming time before the first shot">Warmup</th>
+    <th scope="col" title="Time between bursts">Cooldown</th><th scope="col" title="Accuracy at touch / short / medium / long range">Accuracy</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in vrows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.damage|num }}{% if s.damage_type %} <span class="dtype">{{ s.damage_type }}</span>{% endif %}</td>
+      <td>{{ s.ap|pct }}</td><td>{{ s.burst }}</td><td>{{ s.range|num(1) }}</td>
+      <td>{{ s.warmup|num }} s</td><td>{{ s.cooldown|num }} s</td>
+      <td class="acc">{% for a in s.accuracy %}{{ a|pct }}{% if not loop.last %} / {% endif %}{% endfor %}</td>
+      <td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Gun</th><th scope="col">Caliber</th><th scope="col" title="Damage of the default ammo">Damage</th>
+    <th scope="col" title="Sharp penetration, mm RHA">Sharp</th><th scope="col" title="Blunt penetration, MPa">Blunt</th>
+    <th scope="col">Magazine</th><th scope="col">Reload</th><th scope="col" title="Shots per burst (aimed burst in brackets)">Burst</th>
+    <th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Cooldown</th><th scope="col" title="Sights efficiency">Sights</th>
+    <th scope="col" title="Shot spread">Spread</th><th scope="col" title="Sway factor">Sway</th><th scope="col">Bulk</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in crows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.caliber or "—" }}{{ ammo_details(s) }}</td>
+      <td>{{ round_damage(s.default, s.ammo|length > 1) }}</td>
+      <td>{{ s.default.ap_sharp|num }}</td><td>{{ s.default.ap_blunt|num }}</td>
+      <td>{{ s.magazine or "—" }}</td><td>{{ s.reload|num }}{% if s.reload is not none %} s{% endif %}</td>
+      <td>{{ s.burst }}{% if s.aimed_burst %} ({{ s.aimed_burst }}){% endif %}</td>
+      <td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.cooldown|num }} s</td>
+      <td>{{ s.sights|num }}</td><td>{{ s.spread|num(3) }}</td><td>{{ s.sway|num }}</td><td>{{ s.bulk|num }}</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+{% endmacro %}
+
+{% macro launcher_tables(f) %}
+{% set vrows = f["items"]|selectattr("vanilla", "defined")|map(attribute="vanilla")|list %}
+{% set crows = f["items"]|selectattr("ce", "defined")|map(attribute="ce")|list %}
+<div class="vanilla-only"><p class="mode-label">Vanilla</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr><th scope="col">Launcher</th><th scope="col">Damage</th><th scope="col">Blast radius</th><th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Mass</th></tr></thead>
+  <tbody>
+  {% for w in vrows %}{% set s = w.stats %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.damage|num }} <span class="dtype">{{ s.damage_type }}</span></td>
+      <td>{{ s.explosion|num(1) }}</td><td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p>
+<div class="table-scroll"><table class="stats">
+  <thead><tr>
+    <th scope="col">Launcher</th><th scope="col" title="Rockets fired before the launcher is spent">Shots</th>
+    <th scope="col" title="Damage of the direct hit">Hit damage</th><th scope="col" title="Sharp penetration, mm RHA">Sharp</th>
+    <th scope="col" title="Explosion damage and radius">Blast</th><th scope="col">Range</th><th scope="col">Warmup</th><th scope="col">Bulk</th><th scope="col">Mass</th>
+  </tr></thead>
+  <tbody>
+  {% for w in crows %}{% set s = w.stats %}{% set b = s.default.blast %}
+    <tr>{{ name_cell(w) }}
+      <td>{{ s.burst }}</td>
+      <td>{{ s.default.damage|num }}{% if s.default.damage_type %} <span class="dtype">{{ s.default.damage_type }}</span>{% endif %}</td>
+      <td>{{ s.default.ap_sharp|num }}</td>
+      <td>{% if b %}{% if b.damage %}{{ b.damage|num }} {% endif %}<span class="dtype">{{ b.type }}</span>, {{ b.radius|num(1) }} tiles{% else %}—{% endif %}</td>
+      <td>{{ s.range|num(1) }}</td><td>{{ s.warmup|num }} s</td><td>{{ s.bulk|num }}</td><td>{{ s.mass|num }} kg</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+</div>
+{% endmacro %}
+
+{% macro research_table(rows) %}
+<div class="table-scroll"><table class="stats research">
+  <thead><tr><th scope="col">Project</th><th scope="col">Cost</th><th scope="col">Tech</th><th scope="col">Needs</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <th scope="row" class="name"><span class="label">{{ r.label }}</span><span class="rdesc">{{ r.description }}</span>
+        {% for q in r.requires %}<span class="badge">{{ q }}</span>{% endfor %}</th>
+      <td>{{ r.cost|num(0) }}</td><td>{{ r.tech }}</td><td class="wrap">{{ r.prereqs|join(", ") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% endmacro %}
+
+{% macro family(key, id, title, tier, blurb) %}
+<h3 class="tier-head tier-{{ tier }}" id="{{ id }}">{{ title }}</h3>
+{{ blurb }}
+{{ gun_tables(fam[key]) }}
+{% endmacro %}
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guns For All Tech Levels</title>
+<meta name="description" content="A RimWorld mod that fills the gaps in vanilla's gun lineup: ballistic guns past Industrial, charge guns before and after Spacer, and disposable launchers for every tier.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guns For All Post-Medieval Tech Levels">
+<meta property="og:description" content="Ballistic and charge guns for every tech level, from proto-charge to Kwazaari, with Combat Extended and Beyond Our Reach support.">
+<meta property="og:image" content="{{ site_url }}assets/preview.png">
+<meta name="theme-color" content="#1b2838">
+<link rel="icon" href="{{ favicon }}">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+/* Runs before the page paints: Vanilla or CE stats from ?mode= or the last choice. Without JS both tables show. */
+(function(r){r.classList.add("js");var m="vanilla";try{var p=new URLSearchParams(location.search).get("mode");m=(p==="ce"||p==="vanilla")?p:(localStorage.getItem("abg-mode")==="ce"?"ce":"vanilla")}catch(e){}r.setAttribute("data-mode",m)})(document.documentElement);
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="#top">Guns For All Tech Levels</a>
+  <div class="mode-switch" role="group" aria-label="Show stats for">
+    <button type="button" data-set-mode="vanilla">Vanilla</button>
+    <button type="button" data-set-mode="ce">Combat Extended</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-art" style="background-image:url(assets/preview.png)" role="img" aria-label="Every gun in the mod laid out by tier"></div>
+  <div class="hero-inner">
+    <h1>Guns For All <span>Post-Medieval</span> Tech Levels</h1>
+    <p class="tagline">Ballistic guns past Industrial, charge guns before and after Spacer, and disposable launchers for every tier. RimWorld {{ about.versions|join(" and ") }}.</p>
+    <p class="cta">
+      <a class="btn primary" href="{{ workshop }}">Steam Workshop</a>
+      <a class="btn" href="{{ github }}">GitHub</a>
+    </p>
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-head">On this page</p>
+    <ol class="side-toc">
+      <li><a href="#gaps">The gaps it fills</a></li>
+      <li><a href="#roles">Seven guns per line</a></li>
+      <li><a href="#guns">The guns</a>
+        <ol>
+          <li><a href="#proto-charge"><span class="vanilla-only">Proto-charge</span><span class="ce-only">Charge</span></a></li>
+          <li><a href="#advanced-ballistic">Advanced ballistic</a></li>
+          <li><a href="#advanced-charge">Advanced charge</a></li>
+          <li><a href="#glitterworld-ballistic">Glitterworld ballistic</a></li>
+          <li><a href="#solar-charge">Solar charge</a></li>
+          <li><a href="#kwazaari-charge">Kwazaari charge</a></li>
+        </ol>
+      </li>
+      <li><a href="#launchers">Disposable launchers</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#compat">Compatibility</a></li>
+      <li><a href="#credits">Credits</a></li>
+    </ol>
+  </aside>
+
+  <main id="main" class="content">
+
+<h2 id="gaps">The gaps it fills</h2>
+<p>Vanilla RimWorld has conventional guns only at Industrial and charge guns only at Spacer. There are no plasteel-era bullets and no charge pistols, no Industrial charge prototypes, nothing past the charge rifle. This mod fills every empty cell below with a full line of guns, each with its own research, recipes and textures.</p>
+
+<div class="table-scroll"><table class="stats grid">
+  <thead><tr><th scope="col"></th><th scope="col">Industrial</th><th scope="col">Spacer</th><th scope="col">Ultra</th><th scope="col">Solar <span class="dtype">BOR</span></th><th scope="col">Kwazaari <span class="dtype">BOR</span></th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Ballistic</th>
+      <td class="vanilla-cell">Vanilla guns</td>
+      <td><a href="#advanced-ballistic">Advanced ballistic</a></td>
+      <td><a href="#glitterworld-ballistic">Glitterworld ballistic</a></td>
+      <td class="none">—</td><td class="none">—</td></tr>
+    <tr><th scope="row">Charge</th>
+      <td><span class="vanilla-only"><a href="#proto-charge">Proto-charge</a></span><span class="ce-only none">— <span class="note">moved to Spacer under CE</span></span></td>
+      <td><span class="vanilla-only vanilla-cell">Vanilla charge rifle and lance</span><span class="ce-only"><a href="#proto-charge">Charge</a> <span class="note">completes vanilla's charge rifle and lance</span></span></td>
+      <td><a href="#advanced-charge">Advanced charge</a></td>
+      <td><a href="#solar-charge">Solar charge</a></td>
+      <td><a href="#kwazaari-charge">Kwazaari charge</a></td></tr>
+    <tr><th scope="row">Launchers</th>
+      <td><a href="#launchers">Disposable</a></td><td><a href="#launchers">Disposable</a></td><td><a href="#launchers">Disposable</a></td>
+      <td><a href="#launchers">Disposable</a></td><td><a href="#launchers">Disposable</a></td></tr>
+  </tbody>
+</table></div>
+<p class="note">Solar and Kwazaari are the tiers <a href="{{ bor_site }}">Beyond Our Reach</a> adds past Ultra. Those columns only appear when it's installed.</p>
+
+<h2 id="roles">Seven guns per line</h2>
+<p>Every line has the same seven roles, so moving up a tier means swapping each gun for its better twin, not relearning the roster:</p>
+<ul class="roles">
+  <li><b>Pistol</b>: a light sidearm.</li>
+  <li><b>Bullpup</b>: a compact assault rifle that fires fast bursts. Not in vanilla.</li>
+  <li><b>Battle rifle</b>: the standard rifle.</li>
+  <li><b>DMR</b>: a designated marksman rifle. Lighter and quicker to aim than a sniper rifle, for a little less damage and range. Not in vanilla.</li>
+  <li><b>Shotgun</b>: short range, heavy hits.</li>
+  <li><b>LMG</b>: long bursts for suppression.</li>
+  <li><b>Sniper rifle</b>: the longest reach in the line.</li>
+</ul>
+<p>A line's first research unlocks its pistol and battle rifle. The bullpup and DMR need its <i>specialized</i> research, and the shotgun, LMG and sniper rifle its <i>heavy</i> research.</p>
+
+<h2 id="guns">The guns</h2>
+<p>Use the <b>Vanilla / Combat Extended</b> switch at the top to see the stats for your game. Hover a gun's name for its description. Under each name: the research it needs and the crafting skill to make it.</p>
+
+{{ family("IndustrialCharged", "proto-charge", '<span class="vanilla-only">Proto-charge</span><span class="ce-only">Charge</span>'|safe, "industrial", '<p class="vanilla-only">Industrial-era charge guns built around a crude, reverse-engineered pulse-charging barrel. Steel, a little plasteel and industrial components: a way into charge weaponry long before you can make a charge rifle.</p><p class="ce-only">Under Combat Extended there are no Industrial charge prototypes. The same seven guns become the plain <b>charge</b> line at Spacer, filling out vanilla\'s charge rifle and charge lance. They need charged shot and fire CE\'s own charged calibers.</p>'|safe) }}
+
+{{ family("SpacerBallistic", "advanced-ballistic", "Advanced ballistic", "spacer", '<p>Conventional guns improved with precise machining and better materials: what comes after the assault rifle when you keep using bullets. Designs inspired by Mass Effect.</p><p class="ce-only">Under CE they fire caseless rounds.</p>'|safe) }}
+
+{{ family("UltraCharged", "advanced-charge", "Advanced charge", "ultra", '<p>The refined step after vanilla\'s charge weapons, built on advanced fabrication. Designs inspired by Xenonauts\' laser weapons.</p>'|safe) }}
+
+{{ family("UltraBallistic", "glitterworld-ballistic", "Glitterworld ballistic", "ultra", '<p>The peak of conventional firearms. Designs inspired by Mass Effect.</p><p class="ce-only">Under CE they fire hypersonic rounds and are rare: exotic and combat orbital traders sell them, and with Royalty so do Empire traders, and the Empire\'s Stellic guards carry them. Only with Beyond Our Reach can you craft them, as a costly plasteel line alongside Solar. Without it the research is removed.</p>'|safe) }}
+
+{{ family("SolarCharged", "solar-charge", "Solar charge", "solar", '<p>Charge weapons of Beyond Our Reach\'s Solar tier, researched in its tree after solar weaponry. Designs inspired by Xenonauts\' plasma weapons. Only with Beyond Our Reach.</p>'|safe) }}
+
+{{ family("QuasarCharged", "kwazaari-charge", "Kwazaari charge", "kwazaari", '<p>The top of the charge line, at Beyond Our Reach\'s Kwazaari tier, after kwazaari weaponry. Designs inspired by Helldivers 2. Only with Beyond Our Reach.</p>'|safe) }}
+
+<h2 id="launchers">Disposable launchers</h2>
+<p>Single-use rocket launchers: a pawn fires it, then drops the empty tube. Each tier hits harder and reaches further, and the EMP versions disable electronics and mechanoids over a wide area. Designs inspired by Star Wars, Helldivers 2, Killzone and real launchers.</p>
+<p class="ce-only">Under CE the launchers replace this mod's vanilla ones with CE's ballistics: armor-piercing APHE and HEAT warheads join HE, and the Solar EMP and both Kwazaari launchers fire several rockets before they're spent. They are crafted in batches, and the Industrial ones only need CE's simple launchers research.</p>
+{{ launcher_tables(fam["DisposableLaunchers"]) }}
+
+<h2 id="research">Research</h2>
+<p>The mod's research lives in the All-Bamba Tech tab. With Beyond Our Reach, the Solar and Kwazaari projects join it, and Ultra moves after Solar: glitterworld ballistics also need BOR's solar weaponry, and the ultra and toxic launchers need solar launchers.</p>
+<p class="ce-only note">Under CE without Beyond Our Reach, the three glitterworld ballistic projects are removed (see <a href="#glitterworld-ballistic">above</a>).</p>
+<div class="vanilla-only"><p class="mode-label">Vanilla</p>{{ research_table(research.vanilla) }}</div>
+<div class="ce-only"><p class="mode-label">Combat Extended</p>{{ research_table(research.ce) }}</div>
+
+<h2 id="compat">Compatibility</h2>
+<p>The mod needs nothing else to run. Everything else below is picked up on its own when present:</p>
+<ul>
+  <li><b>Combat Extended</b>: every gun gets CE stats, calibers and ammo. The charge lines use the mod's own charged ammo with standard, concentrated and ion rounds, and charge rounds wear armor down twice as fast (the wearer takes normal damage).</li>
+  <li><b><a href="{{ bor_site }}">Beyond Our Reach</a></b>: adds the Solar and Kwazaari charge lines and launchers, and puts Ultra research after Solar.</li>
+  <li><b>Biotech</b>: adds the ultra toxic launcher.</li>
+  <li><b>Muzzle Flash</b>: every gun gets a muzzle flash.</li>
+</ul>
+<p>Load it after Combat Extended and Beyond Our Reach. The mod declares this, so RimWorld's auto-sort handles it.</p>
+
+<h2 id="credits">Credits</h2>
+<ul>
+  <li>Textures by Haderoth</li>
+  <li>Initial design by Bambaryła</li>
+  <li>Combat Extended balancing by Bambaryła and Samael Gray</li>
+  <li>Also by KylarZ</li>
+</ul>
+<p class="note">{{ about.license }}</p>
+  </main>
+</div>
+
+<footer class="footer">
+  <p><a href="{{ workshop }}">Steam Workshop</a> · <a href="{{ github }}">GitHub</a> · <a href="{{ bor_site }}">Beyond Our Reach</a></p>
+  <p class="muted">Every stat, icon and research cost on this page is read from the mod's own files each time it updates.</p>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

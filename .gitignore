@@ -1,0 +1,32 @@
+# AI tooling
+.claude/
+.codex/
+.cursor/
+.aider*
+.windsurf/
+.opencode/
+.copilot/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+openspec/
+# AI-written balance reports
+CE/Docs/
+
+# Editors
+.vscode/
+.vs/
+.idea/
+*.code-workspace
+.history/
+
+# Site build output (site/build.py)
+site/_build/
+__pycache__/
+*.pyc
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+*.zip

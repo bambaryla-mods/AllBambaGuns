@@ -1,0 +1,2546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- AllBambaGuns CE disposable launchers -->
+
+	<ThingDef Name="ABG_CE_DisposableLauncherProjectileBase" ParentName="BaseRPG7Grenade" Abstract="True">
+		<graphicData>
+			<texPath>Things/Projectile/Rocket/M72LAW</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>42</speed>
+			<damageDef>Bullet</damageDef>
+			<dropsCasings>true</dropsCasings>
+			<casingMoteDefname>Fleck_DisposableLauncherCasing</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncherCasings</casingFilthDefname>
+			<soundAmbient>RocketPropelledLoop_Small</soundAmbient>
+		</projectile>
+		<comps></comps>
+	</ThingDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>Fleck_DisposableLauncher_Industrial</defName>
+		<graphicData>
+			<texPath>launchers/industrial/fleck</texPath>
+			<shaderType>Transparent</shaderType>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+	</FleckDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>Fleck_DisposableLauncher_Spacer</defName>
+		<graphicData>
+			<texPath>launchers/spacer/fleck</texPath>
+			<shaderType>Transparent</shaderType>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+	</FleckDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>Fleck_DisposableLauncher_Ultra</defName>
+		<graphicData>
+			<texPath>launchers/ultra/fleck</texPath>
+			<shaderType>Transparent</shaderType>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+	</FleckDef>
+
+	<!-- Discarded launcher tube litter (cast aside once the launcher is spent) -->
+	<ThingDef ParentName="BaseFilth_CE">
+		<defName>Filth_DisposableLauncher_Solar</defName>
+		<label>discarded solar launcher tube</label>
+		<graphicData>
+			<texPath>launchers/solar/fleck</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="BaseFilth_CE">
+		<defName>Filth_DisposableLauncher_Quasar</defName>
+		<label>discarded quasar launcher tube</label>
+		<graphicData>
+			<texPath>launchers/quasar/fleck</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<!-- Industrial projectiles -->
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Industrial_HE</defName>
+		<label>industrial disposable launcher shell (HE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>248</damageAmountBase>
+			<armorPenetrationSharp>300</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>175</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>8</Fragment_Large>
+					<Fragment_Small>30</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Industrial_HEAT</defName>
+		<label>industrial disposable launcher shell (HEAT)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>220</damageAmountBase>
+			<armorPenetrationSharp>420</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>80</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>0.85</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>8</Fragment_Small>
+				</fragments>
+			</li>
+			<li Class="CombatExtended.CompProperties_ProjectileFleck">
+				<FleckDatas>
+					<li>
+						<fleck>Fleck_DisposableLauncher_Industrial</fleck>
+						<emissionsPerTick>6</emissionsPerTick>
+						<flecksPerEmission>3</flecksPerEmission>
+						<scale>1</scale>
+						<cutoffTickRange>18~24</cutoffTickRange>
+					</li>
+				</FleckDatas>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Spacer projectiles -->
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Spacer_APHE</defName>
+		<label>spacer disposable launcher shell (APHE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>310</damageAmountBase>
+			<armorPenetrationSharp>500</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>130</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.1</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>10</Fragment_Small>
+				</fragments>
+			</li>
+			<li Class="CombatExtended.CompProperties_ProjectileFleck">
+				<FleckDatas>
+					<li>
+						<fleck>Fleck_DisposableLauncher_Spacer</fleck>
+						<emissionsPerTick>6</emissionsPerTick>
+						<flecksPerEmission>3</flecksPerEmission>
+						<scale>1</scale>
+						<cutoffTickRange>18~24</cutoffTickRange>
+					</li>
+				</FleckDatas>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Spacer_EMP</defName>
+		<label>spacer disposable launcher shell (EMP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>310</damageAmountBase>
+			<armorPenetrationSharp>340</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<empShieldBreakChance>0.15</empShieldBreakChance>
+			<explosionRadius>6</explosionRadius>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>90</damageAmountBase>
+				<explosiveDamageType>EMP</explosiveDamageType>
+				<explosiveRadius>9</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Spacer_HE</defName>
+		<label>spacer disposable launcher shell (HE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>310</damageAmountBase>
+			<armorPenetrationSharp>320</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>260</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3.3</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>12</Fragment_Large>
+					<Fragment_Small>45</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Ultra projectiles -->
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Ultra_APHE</defName>
+		<label>ultra disposable launcher shell (APHE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>388</damageAmountBase>
+			<armorPenetrationSharp>620</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>160</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.2</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>12</Fragment_Small>
+				</fragments>
+			</li>
+			<li Class="CombatExtended.CompProperties_ProjectileFleck">
+				<FleckDatas>
+					<li>
+						<fleck>Fleck_DisposableLauncher_Ultra</fleck>
+						<emissionsPerTick>6</emissionsPerTick>
+						<flecksPerEmission>3</flecksPerEmission>
+						<scale>1</scale>
+						<cutoffTickRange>18~24</cutoffTickRange>
+					</li>
+				</FleckDatas>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Ultra_EMP</defName>
+		<label>ultra disposable launcher shell (EMP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>388</damageAmountBase>
+			<armorPenetrationSharp>380</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<empShieldBreakChance>0.2</empShieldBreakChance>
+			<explosionRadius>7.5</explosionRadius>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>110</damageAmountBase>
+				<explosiveDamageType>EMP</explosiveDamageType>
+				<explosiveRadius>15</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Ultra_HE</defName>
+		<label>ultra disposable launcher shell (HE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>388</damageAmountBase>
+			<armorPenetrationSharp>360</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>320</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3.6</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>14</Fragment_Large>
+					<Fragment_Small>55</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Ultra_Toxic</defName>
+		<label>ultra disposable launcher shell (toxic)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>AcidBurn</damageDef>
+			<damageAmountBase>100</damageAmountBase>
+			<armorPenetrationSharp>320</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<explosionRadius>7.5</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+		</projectile>
+		<comps>
+			<!-- ToxGas deals no damage, so this blast only spawns the gas. CE merges same-type explosions and drops their gas, so the main blast must stay a different type. -->
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>0</damageAmountBase>
+				<explosiveDamageType>ToxGas</explosiveDamageType>
+				<postExplosionGasType>ToxGas</postExplosionGasType>
+				<explosiveRadius>15</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Solar projectiles -->
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Solar_APHE</defName>
+		<label>solar disposable launcher shell (APHE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>485</damageAmountBase>
+			<armorPenetrationSharp>760</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncher_Solar</casingFilthDefname>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>195</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.3</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>14</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Solar_HE</defName>
+		<label>solar disposable launcher shell (HE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>485</damageAmountBase>
+			<armorPenetrationSharp>620</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncher_Solar</casingFilthDefname>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>390</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>16</Fragment_Large>
+					<Fragment_Small>65</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Solar_EMP</defName>
+		<label>solar disposable launcher shell (EMP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>485</damageAmountBase>
+			<armorPenetrationSharp>560</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<empShieldBreakChance>0.25</empShieldBreakChance>
+			<explosionRadius>8.4</explosionRadius>
+			<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncher_Solar</casingFilthDefname>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>130</damageAmountBase>
+				<explosiveDamageType>EMP</explosiveDamageType>
+				<explosiveRadius>9</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- Quasar projectiles -->
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Quasar_EMP</defName>
+		<label>quasar disposable launcher shell (EMP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>606</damageAmountBase>
+			<armorPenetrationSharp>640</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<empShieldBreakChance>0.3</empShieldBreakChance>
+			<explosionRadius>9.6</explosionRadius>
+			<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncher_Quasar</casingFilthDefname>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>80</damageAmountBase>
+				<explosiveDamageType>EMP</explosiveDamageType>
+				<explosiveRadius>3</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ABG_CE_DisposableLauncherProjectileBase">
+		<defName>Bullet_ABG_DisposableLauncher_Quasar_HE</defName>
+		<label>quasar disposable launcher shell (HE)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>606</damageAmountBase>
+			<armorPenetrationSharp>620</armorPenetrationSharp>
+			<armorPenetrationBlunt>31.584</armorPenetrationBlunt>
+			<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_DisposableLauncher_Quasar</casingFilthDefname>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>240</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3</explosiveRadius>
+				<explosionSound>MortarBomb_Explode</explosionSound>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>10</Fragment_Large>
+					<Fragment_Small>40</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- DYI disposable launcher definitions -->
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Industrial_HE</defName>
+		<label>industrial disposable launcher (HE)</label>
+		<description>A lightweight industrial disposable launcher that fires a high-explosive, shaped charge shell.</description>
+		<graphicData>
+			<texPath>launchers/industrial/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Industrial</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>6.30</Bulk>
+			<Mass>2.50</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Industrial_HE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>31</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Industrial_APHE</defName>
+		<label>industrial disposable launcher (APHE)</label>
+		<description>A lightweight industrial disposable launcher that fires an armor-piercing, high-explosive shell with a secondary blast.</description>
+		<graphicData>
+			<texPath>launchers/industrial/APHE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Industrial</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>6.30</Bulk>
+			<Mass>2.50</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Industrial_HEAT</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>31</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Spacer_APHE</defName>
+		<label>spacer disposable launcher (APHE)</label>
+		<description>A disposable spacer launcher that fires a high-penetration APHE rocket.</description>
+		<graphicData>
+			<texPath>launchers/spacer/APHE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Spacer</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>6.80</Bulk>
+			<Mass>3.10</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Spacer_APHE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>46.5</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Spacer_EMP</defName>
+		<label>spacer disposable launcher (EMP)</label>
+		<description>A disposable spacer launcher that fires an EMP rocket with a concussive secondary blast.</description>
+		<graphicData>
+			<texPath>launchers/spacer/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Spacer</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>6.80</Bulk>
+			<Mass>3.10</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Spacer_EMP</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>46.5</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Spacer_HE</defName>
+		<label>spacer disposable launcher (HE)</label>
+		<description>A disposable spacer launcher that fires a high-explosive rocket.</description>
+		<graphicData>
+			<texPath>launchers/spacer/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Spacer</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>6.80</Bulk>
+			<Mass>3.10</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Spacer_HE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>46.5</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Ultra_APHE</defName>
+		<label>ultra disposable launcher (APHE)</label>
+		<description>A disposable ultra launcher that fires a powerful APHE rocket.</description>
+		<graphicData>
+			<texPath>launchers/ultra/ultra</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.10</Bulk>
+			<Mass>3.30</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Ultra_APHE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>69.75</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Ultra_EMP</defName>
+		<label>ultra disposable launcher (EMP)</label>
+		<description>A disposable ultra launcher that fires an EMP rocket with a secondary blast.</description>
+		<graphicData>
+			<texPath>launchers/ultra/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.10</Bulk>
+			<Mass>3.30</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Ultra_EMP</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>69.75</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Ultra_HE</defName>
+		<label>ultra disposable launcher (HE)</label>
+		<description>A disposable ultra launcher that fires a powerful high-explosive rocket.</description>
+		<graphicData>
+			<texPath>launchers/ultra/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.10</Bulk>
+			<Mass>3.30</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Ultra_HE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>69.75</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment">
+		<defName>ABG_CE_DisposableLauncher_Ultra_Toxic</defName>
+		<label>ultra disposable launcher (toxic)</label>
+		<description>A disposable ultra launcher that fires a toxic warhead.</description>
+		<graphicData>
+			<texPath>launchers/ultra/TOX</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.10</Bulk>
+			<Mass>3.30</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+		</weaponTags>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Ultra_Toxic</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>69.75</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>ABG_CE_DisposableLauncher_Solar_APHE</defName>
+		<label>solar disposable launcher (APHE)</label>
+		<description>A solar-tier disposable launcher firing a high-penetration APHE warhead.</description>
+		<graphicData>
+			<texPath>launchers/solar/APHE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>2000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.20</Bulk>
+			<Mass>3.60</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+			<li>BOR_Weapons_I</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BOR_Weapons_I</li>
+			<li>BOR_Tech_I</li>
+		</tradeTags>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>BOR_Military_I</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Solar_APHE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>101.525</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>ABG_CE_DisposableLauncher_Solar_HE</defName>
+		<label>solar disposable launcher (HE)</label>
+		<description>A solar-tier disposable launcher firing a high-explosive rocket.</description>
+		<graphicData>
+			<texPath>launchers/solar/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>2000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.20</Bulk>
+			<Mass>3.60</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+			<li>BOR_Weapons_I</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BOR_Weapons_I</li>
+			<li>BOR_Tech_I</li>
+		</tradeTags>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>BOR_Military_I</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Solar_HE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>101.525</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>ABG_CE_DisposableLauncher_Solar_EMP</defName>
+		<label>solar disposable launcher (EMP)</label>
+		<description>A solar-tier disposable launcher firing a multi-shot EMP projectile before being discarded.</description>
+		<graphicData>
+			<texPath>launchers/solar/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>2000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.20</Bulk>
+			<Mass>3.60</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+			<li>BOR_Weapons_I</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BOR_Weapons_I</li>
+			<li>BOR_Tech_I</li>
+		</tradeTags>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>BOR_Military_I</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Solar_EMP</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>101.525</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>ABG_CE_DisposableLauncher_Quasar_EMP</defName>
+		<label>quasar disposable launcher (EMP)</label>
+		<description>A quasar-tier disposable launcher firing a burst of EMP rockets with reduced explosive yield.</description>
+		<graphicData>
+			<texPath>launchers/quasar/EMP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>4000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.30</Bulk>
+			<Mass>3.80</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+			<li>BOR_Weapons_II</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BOR_Weapons_II</li>
+			<li>BOR_Tech_II</li>
+		</tradeTags>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>BOR_Military_II</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Quasar_EMP</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>124</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<burstShotCount>12</burstShotCount>
+				<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseEquipment" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>ABG_CE_DisposableLauncher_Quasar_HE</defName>
+		<label>quasar disposable launcher (HE)</label>
+		<description>A quasar-tier disposable launcher firing a burst of high-explosive rockets with reduced blast size.</description>
+		<graphicData>
+			<texPath>launchers/quasar/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<techLevel>Ultra</techLevel>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>4000</MarketValue>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>1.24</SwayFactor>
+			<Bulk>7.30</Bulk>
+			<Mass>3.80</Mass>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+			<li>BOR_Weapons_II</li>
+		</thingCategories>
+		<tradeTags>
+			<li>BOR_Weapons_II</li>
+			<li>BOR_Tech_II</li>
+		</tradeTags>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>BOR_Military_II</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ABG_DisposableLauncher_Quasar_HE</defaultProjectile>
+				<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+				<warmupTime>1.9</warmupTime>
+				<range>124</range>
+				<minRange>5</minRange>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<burstShotCount>12</burstShotCount>
+				<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawOffset>-0.3,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<!-- Craft recipes -->
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Industrial_HE_x5</defName>
+		<label>make industrial disposable launcher (HE) x5</label>
+		<description>Craft 5 industrial disposable HE launchers.</description>
+		<jobString>Making industrial disposable launchers.</jobString>
+		<workAmount>32500</workAmount>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>125</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Prometheum</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>ComponentIndustrial</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Industrial_HE>5</ABG_CE_DisposableLauncher_Industrial_HE>
+		</products>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Industrial_HEAT_x5</defName>
+		<label>make industrial disposable launcher (HEAT) x5</label>
+		<description>Craft 5 industrial disposable HEAT launchers.</description>
+		<jobString>Making industrial disposable launchers.</jobString>
+		<workAmount>32500</workAmount>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>125</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>ComponentIndustrial</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Industrial_APHE>5</ABG_CE_DisposableLauncher_Industrial_APHE>
+		</products>
+		<researchPrerequisite>CE_Launchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Spacer_APHE_x3</defName>
+		<label>make spacer disposable launcher (APHE) x3</label>
+		<description>Craft 3 spacer disposable APHE launchers.</description>
+		<jobString>Making spacer disposable launchers.</jobString>
+		<workAmount>24000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>45</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>18</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Spacer_APHE>3</ABG_CE_DisposableLauncher_Spacer_APHE>
+		</products>
+		<researchPrerequisite>ABG_Research_SpacerLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Spacer_EMP_x3</defName>
+		<label>make spacer disposable launcher (EMP) x3</label>
+		<description>Craft 3 spacer disposable EMP launchers.</description>
+		<jobString>Making spacer disposable launchers.</jobString>
+		<workAmount>24000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>45</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>18</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Spacer_EMP>3</ABG_CE_DisposableLauncher_Spacer_EMP>
+		</products>
+		<researchPrerequisite>ABG_Research_EMPLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Spacer_HE_x3</defName>
+		<label>make spacer disposable launcher (HE) x3</label>
+		<description>Craft 3 spacer disposable HE launchers.</description>
+		<jobString>Making spacer disposable launchers.</jobString>
+		<workAmount>24000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>45</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>18</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Spacer_HE>3</ABG_CE_DisposableLauncher_Spacer_HE>
+		</products>
+		<researchPrerequisite>ABG_Research_SpacerLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Ultra_APHE_x2</defName>
+		<label>make ultra disposable launcher (APHE) x2</label>
+		<description>Craft 2 ultra disposable APHE launchers.</description>
+		<jobString>Making ultra disposable launchers.</jobString>
+		<workAmount>18000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Ultra_APHE>2</ABG_CE_DisposableLauncher_Ultra_APHE>
+		</products>
+		<researchPrerequisite>ABG_Research_UltraLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Ultra_EMP_x2</defName>
+		<label>make ultra disposable launcher (EMP) x2</label>
+		<description>Craft 2 ultra disposable EMP launchers.</description>
+		<jobString>Making ultra disposable launchers.</jobString>
+		<workAmount>18000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Prometheum</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Ultra_EMP>2</ABG_CE_DisposableLauncher_Ultra_EMP>
+		</products>
+		<researchPrerequisite>ABG_Research_EMPLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Ultra_HE_x2</defName>
+		<label>make ultra disposable launcher (HE) x2</label>
+		<description>Craft 2 ultra disposable HE launchers.</description>
+		<jobString>Making ultra disposable launchers.</jobString>
+		<workAmount>18000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Prometheum</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Ultra_HE>2</ABG_CE_DisposableLauncher_Ultra_HE>
+		</products>
+		<researchPrerequisite>ABG_Research_UltraLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase">
+		<defName>Make_ABG_CE_DisposableLauncher_Ultra_Toxic_x2</defName>
+		<label>make ultra disposable launcher (toxic) x2</label>
+		<description>Craft 2 ultra disposable toxic launchers.</description>
+		<jobString>Making ultra disposable launchers.</jobString>
+		<workAmount>18000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Prometheum</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Plasteel</li>
+				<li>ComponentSpacer</li>
+				<li>FSX</li>
+				<li>Prometheum</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Ultra_Toxic>2</ABG_CE_DisposableLauncher_Ultra_Toxic>
+		</products>
+		<researchPrerequisite>ABG_Research_ToxicLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>Make_ABG_CE_DisposableLauncher_Solar_APHE</defName>
+		<label>make solar disposable launcher (APHE)</label>
+		<description>Craft 1 solar disposable APHE launcher.</description>
+		<jobString>Making solar disposable launcher.</jobString>
+		<workAmount>12000</workAmount>
+		<recipeUsers>
+			<li>BOR_Bench_I</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>10</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Sunsteel</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Neutronium</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BOR_Sunsteel</li>
+				<li>BOR_Neutronium</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Solar_APHE>1</ABG_CE_DisposableLauncher_Solar_APHE>
+		</products>
+		<researchPrerequisite>ABG_Research_SolarLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>Make_ABG_CE_DisposableLauncher_Solar_HE</defName>
+		<label>make solar disposable launcher (HE)</label>
+		<description>Craft 1 solar disposable HE launcher.</description>
+		<jobString>Making solar disposable launcher.</jobString>
+		<workAmount>12000</workAmount>
+		<recipeUsers>
+			<li>BOR_Bench_I</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>10</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Sunsteel</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Neutronium</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BOR_Sunsteel</li>
+				<li>BOR_Neutronium</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Solar_HE>1</ABG_CE_DisposableLauncher_Solar_HE>
+		</products>
+		<researchPrerequisite>ABG_Research_SolarLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>Make_ABG_CE_DisposableLauncher_Solar_EMP</defName>
+		<label>make solar disposable launcher (EMP)</label>
+		<description>Craft 1 solar disposable EMP launcher.</description>
+		<jobString>Making solar disposable launcher.</jobString>
+		<workAmount>12000</workAmount>
+		<recipeUsers>
+			<li>BOR_Bench_I</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>10</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Sunsteel</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_Neutronium</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BOR_Sunsteel</li>
+				<li>BOR_Neutronium</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Solar_EMP>1</ABG_CE_DisposableLauncher_Solar_EMP>
+		</products>
+		<researchPrerequisite>ABG_Research_SolarEMPLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>Make_ABG_CE_DisposableLauncher_Quasar_EMP</defName>
+		<label>make quasar disposable launcher (EMP)</label>
+		<description>Craft 1 quasar disposable EMP launcher.</description>
+		<jobString>Making quasar disposable launcher.</jobString>
+		<workAmount>16000</workAmount>
+		<recipeUsers>
+			<li>BOR_Bench_II</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>12</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_QuasarAlloy</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_ComponentII</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BOR_QuasarAlloy</li>
+				<li>BOR_ComponentII</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Quasar_EMP>1</ABG_CE_DisposableLauncher_Quasar_EMP>
+		</products>
+		<researchPrerequisite>ABG_Research_QuasarEMPLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="GrenadeRecipeBase" MayRequireAnyOf="bambaryla.bor.redux,bambaryla.bor">
+		<defName>Make_ABG_CE_DisposableLauncher_Quasar_HE</defName>
+		<label>make quasar disposable launcher (HE)</label>
+		<description>Craft 1 quasar disposable HE launcher.</description>
+		<jobString>Making quasar disposable launcher.</jobString>
+		<workAmount>16000</workAmount>
+		<recipeUsers>
+			<li>BOR_Bench_II</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>12</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_QuasarAlloy</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BOR_ComponentII</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BOR_QuasarAlloy</li>
+				<li>BOR_ComponentII</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<ABG_CE_DisposableLauncher_Quasar_HE>1</ABG_CE_DisposableLauncher_Quasar_HE>
+		</products>
+		<researchPrerequisite>ABG_Research_QuasarLaunchers</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

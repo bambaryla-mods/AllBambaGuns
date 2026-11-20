@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- All apparel inherits from this base, so one operation covers every armor piece. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="ApparelNoQualityBase"]</xpath>
+		<value>
+			<damageMultipliers>
+				<li>
+					<damageDef>ABG_ChargeBullet</damageDef>
+					<multiplier>2</multiplier>
+				</li>
+			</damageMultipliers>
+		</value>
+	</Operation>
+</Patch>

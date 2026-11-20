@@ -1,0 +1,2 @@
+# Python packages for site/build.py. The same pin runs locally and in the Pages workflow.
+Jinja2==3.1.5

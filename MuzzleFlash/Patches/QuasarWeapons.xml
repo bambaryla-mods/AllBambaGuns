@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Patch>
+
+   <Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QPistol"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.5,0.5)</drawSize>
+                <offsets>
+                    <li>(0.24,0.06)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QBullpup"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.4,0.02)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+    
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QBattleRifle"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.45,0.04)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QDMR"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.50,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QShotgun"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.45,0.01)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QLMG"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.45,0.01)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+ 
+<Operation Class="SafePatcher.PatchOperationSetModExtension">
+        <xpath>Defs/ThingDef[defName="ABG_Gun_QSniper"]</xpath>
+        <value>
+            <li Class="MuzzleFlash.MuzzleFlashProps">
+                <def>MF_StandardMuzzleFlashKwaazari</def>
+                <drawSize>(0.7,0.7)</drawSize>
+                <offsets>
+                    <li>(0.6,0.05)</li>
+                </offsets>
+                <isAlternately>true</isAlternately>
+            </li>
+        </value>
+    </Operation>    
+ 
+
+</Patch>

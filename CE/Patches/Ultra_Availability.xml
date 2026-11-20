@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Glitterworld guns. Only Empire pawns, high-tier traders and quest rewards provide them. With Beyond Our Reach they stay craftable as a parallel line to Solar: plasteel, very high research cost, no BOR research. Without it they cannot be crafted. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraderKindDef[defName="Orbital_Exotic"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_Tag">
+						<tradeTag>ABG_GlitterGun</tradeTag>
+						<thingDefCountRange>1~2</thingDefCountRange>
+						<countRange>1~1</countRange>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraderKindDef[defName="Orbital_CombatSupplier"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_Tag">
+						<tradeTag>ABG_GlitterGun</tradeTag>
+						<thingDefCountRange>1~2</thingDefCountRange>
+						<countRange>1~1</countRange>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraderKindDef[defName="Orbital_Empire"]/stockGenerators</xpath>
+					<value>
+						<li Class="StockGenerator_Tag">
+							<tradeTag>ABG_GlitterGun</tradeTag>
+							<thingDefCountRange>1~2</thingDefCountRange>
+							<countRange>1~1</countRange>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraderKindDef[defName="Base_Empire_Standard"]/stockGenerators</xpath>
+					<value>
+						<li Class="StockGenerator_Tag">
+							<tradeTag>ABG_GlitterGun</tradeTag>
+							<thingDefCountRange>1~2</thingDefCountRange>
+							<countRange>1~1</countRange>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/PawnKindDef[defName="Empire_Fighter_StellicGuardRanged"]/weaponTags</xpath>
+					<value>
+						<li>ABG_GlitterGun</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/PawnKindDef[defName="ABT_Empire_GlitterGuardRanged"]</xpath>
+					<match Class="PatchOperationReplace">
+						<xpath>Defs/PawnKindDef[defName="ABT_Empire_GlitterGuardRanged"]/weaponTags</xpath>
+						<value>
+							<weaponTags Inherit="False">
+								<li>ABG_GlitterGun</li>
+							</weaponTags>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Beyond Our Reach</li>
+			<li>Beyond Our Reach :: Redux</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBPistol"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>67</Plasteel>
+							<ComponentSpacer>3</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBPistol"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>41000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBPistol"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBullpup"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>120</Plasteel>
+							<ComponentSpacer>5</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBullpup"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>61000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBullpup"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBattleRifle"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>137</Plasteel>
+							<ComponentSpacer>6</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBattleRifle"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>64000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBattleRifle"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBDMR"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>129</Plasteel>
+							<ComponentSpacer>5</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBDMR"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>74000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBDMR"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBShotgun"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>111</Plasteel>
+							<ComponentSpacer>4</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBShotgun"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>56000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBShotgun"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBLMG"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>155</Plasteel>
+							<ComponentSpacer>6</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBLMG"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>79000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBLMG"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBSniper"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>137</Plasteel>
+							<ComponentSpacer>5</ComponentSpacer>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBSniper"]/statBases/WorkToMake</xpath>
+					<value>
+						<WorkToMake>79000</WorkToMake>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBSniper"]/recipeMaker/skillRequirements/Crafting</xpath>
+					<value>
+						<Crafting>16</Crafting>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterBallisticWeaponry"]/baseCost</xpath>
+					<value>
+						<baseCost>120000</baseCost>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterSpecialistBallisticWeaponry"]/baseCost</xpath>
+					<value>
+						<baseCost>60000</baseCost>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterHeavyBallisticWeaponry"]/baseCost</xpath>
+					<value>
+						<baseCost>60000</baseCost>
+					</value>
+				</li>
+			</operations>
+		</match>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBPistol"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBPistol"]/statBases</xpath>
+					<value>
+						<MarketValue>1350</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBullpup"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBullpup"]/statBases</xpath>
+					<value>
+						<MarketValue>2300</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBattleRifle"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBBattleRifle"]/statBases</xpath>
+					<value>
+						<MarketValue>2650</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBDMR"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBDMR"]/statBases</xpath>
+					<value>
+						<MarketValue>2450</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBShotgun"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBShotgun"]/statBases</xpath>
+					<value>
+						<MarketValue>2000</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBLMG"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBLMG"]/statBases</xpath>
+					<value>
+						<MarketValue>2900</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBSniper"]/recipeMaker</xpath>
+					<value>
+						<recipeMaker Inherit="False" />
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ABG_Gun_UBSniper"]/statBases</xpath>
+					<value>
+						<MarketValue>2500</MarketValue>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterBallisticWeaponry"]</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterSpecialistBallisticWeaponry"]</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ResearchProjectDef[defName="ABG_Research_GlitterHeavyBallisticWeaponry"]</xpath>
+				</li>
+			</operations>
+		</nomatch>
+	</Operation>
+</Patch>

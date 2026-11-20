@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WHands.ClutterHandsTDef MayRequire="mlie.showmeyourhands">
+        <defName>ClutterHandsSettings_GunsForAllTechLevels</defName>
+        <label>weapon hand settings</label>
+        <thingClass>Thing</thingClass>
+        <WeaponCompLoader>
+            <li>
+                <MainHand>(-0.298, 0.100, 0.087)</MainHand>
+                <SecHand>(0.137, -0.100, -0.145)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Spacer_HE</li> <!-- spacer disposable launcher (HE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.301, 0.100, 0.107)</MainHand>
+                <SecHand>(0.140, -0.100, -0.111)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Spacer_EMP</li> <!-- spacer disposable launcher (EMP) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.298, 0.100, 0.097)</MainHand>
+                <SecHand>(0.088, -0.100, -0.178)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Spacer_APHE</li> <!-- spacer disposable launcher (APHE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.045, 0.100, -0.090)</MainHand>
+                <SecHand>(0.235, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBRifle</li> <!-- advanced battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.095, 0.100, -0.063)</MainHand>
+                <SecHand>(0.179, -0.100, -0.023)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBBullpup</li> <!-- advanced bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.138, 0.100, -0.050)</MainHand>
+                <SecHand>(0.232, -0.100, -0.010)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCBattleRifle</li> <!-- advanced charge battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.085, 0.100, -0.080)</MainHand>
+                <SecHand>(0.249, -0.100, -0.040)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCBullpup</li> <!-- advanced charge bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.095, 0.100, -0.113)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCDMR</li> <!-- advanced charge DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.095, 0.100, -0.097)</MainHand>
+                <SecHand>(0.192, -0.100, -0.070)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCLMG</li> <!-- advanced charge LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.078, 0.100, -0.063)</MainHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCPistol</li> <!-- advanced charge pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.101, 0.100, -0.097)</MainHand>
+                <SecHand>(0.249, -0.100, -0.070)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCShotgun</li> <!-- advanced charge shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.135, 0.100, -0.080)</MainHand>
+                <SecHand>(0.105, -0.100, -0.043)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBDMR</li> <!-- advanced DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.185, 0.100, -0.093)</MainHand>
+                <SecHand>(0.099, -0.100, -0.097)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBLMG</li> <!-- advanced LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.141, 0.100, -0.063)</MainHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBPistol</li> <!-- advanced pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.179, 0.100, -0.050)</MainHand>
+                <SecHand>(0.155, -0.100, -0.040)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBShotgun</li> <!-- advanced shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.101, 0.100, -0.097)</MainHand>
+                <SecHand>(0.249, -0.100, -0.070)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UCSniper</li> <!-- advanced charge sniper -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.101, 0.100, -0.097)</MainHand>
+                <SecHand>(0.249, -0.100, -0.070)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBSniper</li> <!-- advanced sniper rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.225, 0.100, -0.085)</MainHand>
+                <SecHand>(0.010, -0.100, 0.110)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Industrial_APHE</li> <!-- industrial disposable launcher (APHE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.225, 0.100, -0.085)</MainHand>
+                <SecHand>(0.010, -0.100, 0.110)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Industrial_HE</li> <!-- industrial disposable launcher (HE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.070, 0.100, -0.090)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBBattleRifle</li> <!-- precision battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.110, 0.100, -0.115)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBBullpup</li> <!-- precision bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.130, 0.100, -0.085)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBDMR</li> <!-- precision DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.065, 0.100, -0.110)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBLMG</li> <!-- precision LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.110, 0.100, -0.110)</MainHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBPistol</li> <!-- precision pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.195, 0.100, -0.050)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBShotgun</li> <!-- precision shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.267, 0.100, -0.050)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_UBSniper</li> <!-- precision sniper rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.110, 0.100, -0.060)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QBattleRifle</li> <!-- quasar charge battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.055, 0.100, -0.095)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QBullpup</li> <!-- quasar charge bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.090, 0.100, -0.125)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QDMR</li> <!-- quasar charge DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.125, 0.100, -0.125)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QLMG</li> <!-- quasar charge LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.130, 0.100, -0.110)</MainHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QPistol</li> <!-- quasar charge pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.070, 0.100, -0.120)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QShotgun</li> <!-- quasar charge shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.220, 0.100, -0.050)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_QSniper</li> <!-- quasar charge sniper -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.330, 0.100, 0.095)</MainHand>
+                <SecHand>(0.115, -0.100, 0.110)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Quasar_EMP</li> <!-- quasar disposable launcher (EMP) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.290, 0.100, 0.075)</MainHand>
+                <SecHand>(0.110, -0.100, 0.080)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Quasar_HE</li> <!-- quasar disposable launcher (HE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.080, 0.100, -0.120)</MainHand>
+                <SecHand>(0.210, -0.100, -0.085)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBattleRifle</li> <!-- solar charge battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(0.040, 0.100, -0.115)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SBullpup</li> <!-- solar charge bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.115, 0.100, -0.090)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SDMR</li> <!-- solar charge DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.070, 0.100, -0.130)</MainHand>
+                <SecHand>(0.065, -0.100, 0.180)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SLMG</li> <!-- solar charge LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.150, 0.100, -0.095)</MainHand>
+                <SecHand>(0.085, -0.100, -0.105)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SPistol</li> <!-- solar charge pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.110, 0.100, -0.080)</MainHand>
+                <SecHand>(0.120, -0.100, -0.090)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SShotgun</li> <!-- solar charge shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.234, 0.100, -0.050)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_SSniper</li> <!-- solar charge sniper -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(0.095, 0.100, -0.100)</MainHand>
+                <SecHand>(0.340, -0.100, -0.105)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Solar_APHE</li> <!-- solar disposable launcher (APHE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(0.125, 0.100, -0.090)</MainHand>
+                <SecHand>(0.335, -0.100, -0.100)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Solar_EMP</li> <!-- solar disposable launcher (EMP) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(0.120, 0.100, -0.100)</MainHand>
+                <SecHand>(0.320, -0.100, -0.100)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Solar_HE</li> <!-- solar disposable launcher (HE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.090, 0.100, -0.060)</MainHand>
+                <SecHand>(0.210, -0.100, 0.005)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICBattleRifle</li> <!-- standard charge battle rifle -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(0.000, 0.100, -0.050)</MainHand>
+                <SecHand>(0.235, -0.100, 0.010)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICBullpup</li> <!-- standard charge bullpup -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.085, 0.100, -0.080)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICDMR</li> <!-- standard charge DMR -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.180, 0.100, -0.050)</MainHand>
+                <SecHand>(0.120, -0.100, -0.005)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICLMG</li> <!-- standard charge LMG -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.180, 0.100, -0.070)</MainHand>
+                <SecHand>(-0.055, -0.100, 0.030)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICPistol</li> <!-- standard charge pistol -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.105, 0.100, -0.025)</MainHand>
+                <SecHand>(0.150, -0.100, -0.010)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICShotgun</li> <!-- standard charge shotgun -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.257, 0.100, -0.050)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_Gun_ICSniper</li> <!-- standard charge sniper -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.120, 0.100, 0.055)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Ultra_APHE</li> <!-- ultra disposable launcher (APHE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.120, 0.100, 0.055)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Ultra_HE</li> <!-- ultra disposable launcher (HE) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.120, 0.100, 0.055)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Ultra_EMP</li> <!-- ultra disposable launcher (EMP) -->
+                </ThingTargets>
+            </li>
+            <li>
+                <MainHand>(-0.120, 0.100, 0.055)</MainHand>
+                <SecHand>(0.200, -0.100, -0.050)</SecHand>
+                <ThingTargets>
+                    <li>ABG_CE_DisposableLauncher_Ultra_Toxic</li> <!-- ultra disposable launcher (toxic) -->
+                </ThingTargets>
+            </li>
+        </WeaponCompLoader>
+    </WHands.ClutterHandsTDef>
+</Defs>

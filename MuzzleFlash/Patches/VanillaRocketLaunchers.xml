@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Vanilla (non-CE) disposable launchers; CE ones are in RocketLaunchers.xml -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<nomatch Class="PatchOperationSequence">
+		<operations>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Industrial_HE"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Spacer_HE"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Spacer_EMP"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Ultra_HE"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Ultra_EMP"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Ultra_Toxic"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Solar_HE"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Solar_EMP"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Quasar_HE"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+			<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="ABG_DisposableLauncher_Quasar_EMP"]</xpath>
+					<value>
+						<li Class="MuzzleFlash.MuzzleFlashProps">
+							<def>MF_StandardMuzzleFalsh</def>
+							<drawSize>(1.5,1.5)</drawSize>
+							<offsets>
+								<li>(0.45,0.01)</li>
+							</offsets>
+						</li>
+					</value>
+				</li>
+		</operations>
+		</nomatch>
+	</Operation>
+</Patch>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Vanilla launcher research. Under Combat Extended the CE/ folder provides these instead (rooted on CE_Launchers). -->
+
+    <ResearchProjectDef>
+        <defName>ABG_Research_DisposableLaunchers</defName>
+        <label>disposable launchers</label>
+        <description>Cheap single-use rocket tubes that can be mass-produced on a machining table. Not elegant, but a bunch of them goes a long way.</description>
+        <baseCost>1500</baseCost>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>GasOperation</li>
+        </prerequisites>
+        <tab>ABT_Research_Tab</tab>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>5.80</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ABG_Research_SpacerLaunchers</defName>
+        <label>spacer launchers</label>
+        <description>Unlock spacer-tier disposable launchers that build on basic launcher design with higher-grade components.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Spacer</techLevel>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <prerequisites>
+            <li>ABG_Research_DisposableLaunchers</li>
+            <li>Fabrication</li>
+        </prerequisites>
+        <tab>ABT_Research_Tab</tab>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>5.80</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ABG_Research_UltraLaunchers</defName>
+        <label>ultra launchers</label>
+        <description>Unlock ultra-tier disposable launchers requiring advanced fabrication equipment and deeper launcher expertise.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Ultra</techLevel>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ABG_Research_SpacerLaunchers</li>
+            <li>MultiAnalyzer</li>
+        </prerequisites>
+        <tab>ABT_Research_Tab</tab>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>5.80</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ABG_Research_EMPLaunchers</defName>
+        <label>EMP launchers</label>
+        <description>Develop electromagnetic pulse launchers specialized for disabling electronics and cybernetic systems.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Spacer</techLevel>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <prerequisites>
+            <li>ABG_Research_DisposableLaunchers</li>
+            <li>Fabrication</li>
+        </prerequisites>
+        <tab>ABT_Research_Tab</tab>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>5.10</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef MayRequire="Ludeon.RimWorld.Biotech">
+        <defName>ABG_Research_ToxicLaunchers</defName>
+        <label>toxic launchers</label>
+        <description>Research specialized toxic launchers that deliver chemical payloads with advanced containment and dispersal mechanisms.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Ultra</techLevel>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ABG_Research_DisposableLaunchers</li>
+            <li>MultiAnalyzer</li>
+        </prerequisites>
+        <tab>ABT_Research_Tab</tab>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>4.60</researchViewY>
+    </ResearchProjectDef>
+</Defs>
